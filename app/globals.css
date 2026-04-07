@@ -1,0 +1,341 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff;
+    --foreground: #171717;
+  }
+}
+@font-face {
+  font-family: 'Futura';
+  src: url('/Futura.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Futura', sans-serif;
+}
+@keyframes beat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+}
+
+.animate-beat {
+  animation: beat 1.2s infinite ease-in-out;
+}
+
+.custom{
+background-image: url('/bg.png');
+ background-repeat: no-repeat;
+ background-size : cover;
+  background-attachment: fixed; 
+  
+}
+
+
+.custom1{
+  background-image: linear-gradient(135deg, rgba(225,255,242, 0.2) 0%, rgba(225,255,242, 0.2) 16.667%,rgba(82,123,100, 0.2) 16.667%, rgba(82,123,100, 0.2) 33.334%,rgba(221,221,221, 0.2) 33.334%, rgba(221,221,221, 0.2) 50.001%,rgba(20, 108, 92,0.2) 50.001%, rgba(20, 108, 92,0.2) 66.668%,rgba(255,255,255, 0.2) 66.668%, rgba(255,255,255, 0.2) 83.335%,rgba(0,116,46, 0.2) 83.335%, rgba(0,116,46, 0.2) 100.002%),linear-gradient(45deg, rgba(225,255,242, 0.2) 0%, rgba(225,255,242, 0.2) 16.667%,rgba(82,123,100, 0.2) 16.667%, rgba(82,123,100, 0.2) 33.334%,rgba(221,221,221, 0.2) 33.334%, rgba(221,221,221, 0.2) 50.001%,rgba(20, 108, 92,0.2) 50.001%, rgba(20, 108, 92,0.2) 66.668%,rgba(255,255,255, 0.2) 66.668%, rgba(255,255,255, 0.2) 83.335%,rgba(0,116,46, 0.2) 83.335%, rgba(0,116,46, 0.2) 100.002%),linear-gradient(135deg, rgba(225,255,242, 0.2) 0%, rgba(225,255,242, 0.2) 16.667%,rgba(82,123,100, 0.2) 16.667%, rgba(82,123,100, 0.2) 33.334%,rgba(221,221,221, 0.2) 33.334%, rgba(221,221,221, 0.2) 50.001%,rgba(20, 108, 92,0.2) 50.001%, rgba(20, 108, 92,0.2) 66.668%,rgba(255,255,255, 0.2) 66.668%, rgba(255,255,255, 0.2) 83.335%,rgba(0,116,46, 0.2) 83.335%, rgba(0,116,46, 0.2) 100.002%),linear-gradient(90deg, rgb(0,126,130),rgb(0,126,130));
+}
+
+ 
+ 
+/* From Uiverse.io by milley69 */ 
+.loading svg polyline {
+  fill: none;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.loading svg polyline#back {
+  fill: none;
+  stroke: #ff4d5033;
+}
+
+.loading svg polyline#front {
+  fill: none;
+  stroke: #ff4d4f;
+  stroke-dasharray: 48, 144;
+  stroke-dashoffset: 192;
+  animation: dash_682 1.4s linear infinite;
+}
+
+@keyframes dash_682 {
+  72.5% {
+    opacity: 0;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+/* From Uiverse.io by MikeAndrewDesigner */ 
+.e-card {
+ 
+  background: transparent;
+  box-shadow: 0px 8px 28px -9px rgba(0,0,0,0.45);
+  position: relative;
+  width: 400px;
+  height: 300px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+@media (max-width: 600px) {
+  .e-card {
+    width: 350px; /* or set a specific value like 300px */
+  }
+}
+
+.wave {
+  position: absolute;
+  width: 200px;
+  height: 250px;
+  opacity: 0.6;
+  left: 0;
+  top: 0;
+  margin-left: -50%;
+  margin-top: -70%;
+  background: linear-gradient(744deg,#fff ,#fff 20%,#fff );
+}
+
+.icon {
+  width: 3em;
+  margin-top: -1em;
+  padding-bottom: 1em;
+}
+
+/* From Uiverse.io by MikeAndrewDesigner */ 
+.e-card {
+  margin: 100px auto;
+  background: transparent;
+  box-shadow: 0px 8px 28px -9px rgba(0,0,0,0.45);
+  position: relative;
+  width: 362px;
+  height: 370px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+@media (max-width: 600px) {
+  .e-card {
+    margin: 25px auto;
+    width: 350px; /* or set a specific value like 300px */
+  }
+}
+
+.wave {
+  position: absolute;
+  width: 600px;
+  height: 700px;
+  opacity: 0.6;
+  left: 0;
+  top: 0;
+  margin-left: -50%;
+  margin-top: -70%;
+  background:  linear-gradient(744deg,#fff ,#fff 20%,#c0c0c0 )
+}
+
+ 
+
+
+.icon {
+  width: 3em;
+  margin-top: -1em;
+  padding-bottom: 1em;
+}
+
+ 
+
+.name {
+  font-size: 14px;
+  font-weight: 100;
+  position: relative;
+  top: 1em;
+  text-transform: lowercase;
+}
+
+.wave:nth-child(2),
+.wave:nth-child(3) {
+  top: 210px;
+}
+
+.playing .wave {
+  border-radius: 40%;
+  animation: wave 3000ms infinite linear;
+}
+
+.wave {
+  border-radius: 40%;
+  animation: wave 55s infinite linear;
+}
+
+.playing .wave:nth-child(2) {
+  animation-duration: 4000ms;
+}
+
+.wave:nth-child(2) {
+  animation-duration: 50s;
+}
+
+.playing .wave:nth-child(3) {
+  animation-duration: 5000ms;
+}
+
+.wave:nth-child(3) {
+  animation-duration: 45s;
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.stroke-text {
+  -webkit-text-stroke: 1.5px #ffffff;
+  color: transparent;
+}
+
+/* From Uiverse.io by MuhammadHasann */ 
+.fancy-button {
+  position: relative;
+  display: inline-block;
+  padding: 12px 28px;
+  border: 2px solid #007c82;
+  border-radius: 15px;
+  background: #007c82;
+  color: white;
+  font-weight: 400;
+  font-size: 32px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+@media(max-width:600px){
+  .fancy-button{
+    font-size:24px;
+  }
+}
+
+.fancy-button:hover {
+  transform: scale(1.05);
+}
+
+/* Shine animation layer */
+.shine-overlay {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+     
+    rgba(0, 124, 130, 0.3),
+     
+  );
+  animation: shine 10s infinite;
+  z-index: 1;
+}
+
+/* Text gradient shine */
+.button-text {
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(90deg, #007c82, #6d6e71, #007c82);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: text-shine 8s linear infinite;
+}
+
+/* Keyframes */
+@keyframes text-shine {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+
+
+.onde {
+  position:relative;
+  left:0;
+  width: 100%;
+  height:100vh;
+  margin-bottom:-7px; /*Fix for safari gap*/
+  min-height:100px;
+  max-height:150px;
+  transform: rotate(90deg)
+}
+
+
+/* Animation */
+
+.parallaxonde > use {
+  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
+}
+.parallaxonde > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallaxonde > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallaxonde > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.parallaxonde > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+@keyframes move-forever {
+  0% {
+   transform: translate3d(-90px,0,0);
+  }
+  100% { 
+    transform: translate3d(85px,0,0);
+  }
+}
+/*Shrinking for mobile*/
+@media (max-width: 768px) {
+  .onde {
+    height:40px;
+    min-height:40px;
+  }
+}

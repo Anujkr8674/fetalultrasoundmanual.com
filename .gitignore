@@ -1,0 +1,42 @@
+# heavy assets
+public/images/
+public/videos/
+*.mp4
+*.mov
+*.avi
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.gif
+*.svg
+
+# dependencies
+/node_modules
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
