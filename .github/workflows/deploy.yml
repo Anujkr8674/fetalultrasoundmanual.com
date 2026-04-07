@@ -22,8 +22,11 @@ jobs:
       - name: Deploy to Hostinger via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: ${{ secrets.FTP_SERVER }}
+          server: ftp.fetalultrasoundmanual.com   # 🔥 IP ki jagah ye use karo
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftp
+          port: 21
+          passive: true
           local-dir: ./out/
           server-dir: /public_html/
