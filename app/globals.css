@@ -41,7 +41,8 @@ body {
 }
 
 .custom{
-background-image: url('/bg.png');
+  
+background-image: url('/https://fetalultrasoundmanual.com/assets/bg-images/bg.png');
  background-repeat: no-repeat;
  background-size : cover;
   background-attachment: fixed; 

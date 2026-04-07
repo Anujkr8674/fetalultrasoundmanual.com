@@ -56,7 +56,8 @@ function Page() {
               hospital="Dr Kuldeep's Ultrasound and Color Doppler Clinic"
               designation=""
               location="New Delhi, India"
-              image="/author-images/Kuldeep.png"
+              
+              image="https://fetalultrasoundmanual.com/assets/author-images/Kuldeep.png"
             />
           </motion.div>
           <motion.div
@@ -73,7 +74,7 @@ function Page() {
               hospital="WOW London"
               designation=""
               location="Cambridge, United Kingdom"
-              image="/author-images/Karunakar.png"
+              image="https://fetalultrasoundmanual.com/assets/author-images/Karunakar.png"
             />
           </motion.div>
            <motion.div
@@ -90,7 +91,7 @@ function Page() {
               hospital="ART Rainbow IVF, Ujala Cygnus Rainbow Hospital and Malhotra Nursing and Maternity Home"
               designation="Assistant Editor Journal of IJHRRD"
               location="Agra, Uttar Pradesh, India"
-              image="/author-images/Neha.png"
+              image="https://fetalultrasoundmanual.com/assets/author-images/Neha.png"
             />
           </motion.div>
         </div>

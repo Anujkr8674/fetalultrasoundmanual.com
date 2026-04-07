@@ -53,7 +53,7 @@ function Page() {
               hospital="Apollo Multispeciality Hospital"
               designation=""
               location="Kolkata, West Bengal, India"
-              image="/author-images/seeta.png"
+              image="https://fetalultrasoundmanual.com/assets/author-images/seeta.png"
             />
           </motion.div>
 
@@ -71,7 +71,7 @@ function Page() {
               hospital="Max Superspeciality Hospital Vaishali, Panchsheel Hospital"
               designation=""
               location="New Delhi, India"
-              image="/author-images/poonam.png"
+              image="https://fetalultrasoundmanual.com/assets/author-images/poonam.png"
             />
           </motion.div>
 
@@ -89,7 +89,7 @@ function Page() {
               hospital="SMRITI Manyata CSE, Global Rainbow Healthcare, MHMH (P) Ltd"
               designation="Past President FOGSI ISAR ASPIRE IMS AOGS SAFOMS ISPAT, Editor-in-Chief SAFOG and SAFOMS Journals, Past Vice Chairman ICOG, FIGO Committee Roles, Founder Club 35 Plus and Rotary Club Agra Grace"
               location="Agra, Uttar Pradesh, India"
-              image="/author-images/jaydeep.png"
+              image="https://fetalultrasoundmanual.com/assets/author-images/jaydeep.png"
             />
           </motion.div>
 
@@ -107,7 +107,7 @@ function Page() {
               hospital="Ebtesama Center for Advanced Endoscopic Surgery, H.A.R.T. (Hyteroscopy Academy for Research and Training), Cairo University School of Medicine"
               designation=""
               location="Cairo, Egypt"
-              image="/author-images/osama.png"
+              image="https://fetalultrasoundmanual.com/assets/author-images/osama.png"
             />
           </motion.div>
 
