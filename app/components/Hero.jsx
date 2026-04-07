@@ -95,7 +95,8 @@ function Hero({ onScrollClick }) {
           <p className='text-[22px] text-black block sm:hidden ml-5 w-fit px-3 py-2 border-2 hover:bg-[#FCC27F] text-[#000000] duration-200 hover:text-black border-[#FCC27F ] rounded-full'>
             Editor of the Series
           </p>
-          <img src="/DrArun.png" alt="Dr. Arun Mohanty" className='sm:h-96 sm:w-96' />
+          
+          <img src="https://fetalultrasoundmanual.com/assets/editor-images/DrArun.png" alt="Dr. Arun Mohanty" className='sm:h-96 sm:w-96' />
         </motion.div>
 
         {/* Text content with motion from right */}

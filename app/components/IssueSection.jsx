@@ -8,19 +8,19 @@ import Link from 'next/link';
 const issues = [
   {
     coverImg:
-      ' /casebook1.png',
+      ' https://fetalultrasoundmanual.com/assets/casebook-images/casebook1.png',
     issueNo: 1,
     linkUrl: './issue1',
   },
   // {
   //   coverImg:
-  //     ' /casebook2.png',
+  //     ' https://fetalultrasoundmanual.com/assets/casebook-images/casebook2.png',
   //   issueNo: 2,
   //   linkUrl: './issue2',
   // },
   // {
   //   coverImg:
-  //     ' /casebook3.png',
+  //     ' https://fetalultrasoundmanual.com/assets/casebook-images/casebook3.png',
   //   issueNo: 3,
   //   linkUrl: './issue3',
   // },
