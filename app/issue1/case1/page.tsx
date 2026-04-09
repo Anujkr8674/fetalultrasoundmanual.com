@@ -105,9 +105,39 @@ function Page() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
           <VideoCard
-            videoSrc="/issue1case1assets/is1cs1v.mp4"
+            videoSrc="https://fetalultrasoundmanual.com/assets/videos/Videos_Case 1_Issue 1/Video 1_Early fetal development.mp4"
             title="Video 1"
-            about=""
+            about="Early fetal development"
+          />
+
+          <VideoCard
+            videoSrc="https://fetalultrasoundmanual.com/assets/videos/Videos_Case 1_Issue 1/Video 2A Early pregnancy scan.mp4"
+            title="Video 2A"
+            about="Early pregnancy scan"
+          />
+
+          <VideoCard
+            videoSrc="https://fetalultrasoundmanual.com/assets/videos/Videos_Case 1_Issue 1/Video 2B Early pregnancy scan.mp4"
+            title="Video 2B"
+            about="Early pregnancy scan"
+          />
+
+          <VideoCard
+            videoSrc="https://fetalultrasoundmanual.com/assets/videos/Videos_Case 1_Issue 1/Video 2C Early pregnancy scan.mp4"
+            title="Video 2C"
+            about="Early pregnancy scan"
+          />
+
+           <VideoCard
+            videoSrc="https://fetalultrasoundmanual.com/assets/videos/Videos_Case 1_Issue 1/Video 3A Development of neural tube.mp4"
+            title="Video 3A"
+            about="Development of neural tube.mp4"
+          />
+
+           <VideoCard
+            videoSrc="https://fetalultrasoundmanual.com/assets/videos/Videos_Case 1_Issue 1/Video 3B Development of neural tube.mp4"
+            title="Video 3B"
+            about="Development of neural tube.mp4"
           />
 
 

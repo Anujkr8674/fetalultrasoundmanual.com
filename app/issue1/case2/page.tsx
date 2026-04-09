@@ -120,15 +120,31 @@ function Page() {
         <h2 className="text-2xl text-[#FCC27F] md:text-3xl font-semibold mb-10  text-center">Case Videos</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <VideoCard
-            videoSrc="/issue1case2assets/Video.mp4"
-            title="Video 1"
-            about=""
+            videoSrc="https://fetalultrasoundmanual.com/assets/videos/Videos_Case 2_Issue 1/Video 1A - Management of uterine cavity problems.mp4"
+            title="Video 1A"
+            about="Management of uterine cavity problems"
           />
-          {/* <VideoCard
-            videoSrc="/issue1case2assets/Video2.mp4"
-            title="Video 2"
-            about="OCT Video Loop 2 of RCA calcific nodule post-DCB angioplasty with adequate MLA and non-flow-limiting dissection"
-          /> */}
+           <VideoCard
+            videoSrc="https://fetalultrasoundmanual.com/assets/videos/Videos_Case 2_Issue 1/Video 1B - Management of uterine cavity problems.mp4"
+            title="Video 1B"
+            about="Management of uterine cavity problems"
+          />
+           <VideoCard
+            videoSrc="https://fetalultrasoundmanual.com/assets/videos/Videos_Case 2_Issue 1/Video 1C - Management of uterine cavity problems.mp4"
+            title="Video 1C"
+            about="Management of uterine cavity problems"
+          />
+           <VideoCard
+            videoSrc="https://fetalultrasoundmanual.com/assets/videos/Videos_Case 2_Issue 1/Video 1D - Management of uterine cavity problems.mp4"
+            title="Video 1D"
+            about="Management of uterine cavity problems"
+          />
+           <VideoCard
+            videoSrc="https://fetalultrasoundmanual.com/assets/videos/Videos_Case 2_Issue 1/Video 1E - Management of uterine cavity problems.mp4"
+            title="Video 1E"
+            about="Management of uterine cavity problems"
+          />
+         
 
         </div>
       </section>
