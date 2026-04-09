@@ -57,8 +57,8 @@ function Hero({ onScrollClick }) {
           transition={{ duration: 1.2, ease: 'easeOut' }}
           className='text-justify flex justify-center items-center flex-col text-[18px] text-[#fefefe] sm:mt-12 mt-6 opacity-90'
         >
-          <button onClick={onScrollClick} className="hover:bg-[#FCC27F] duration-200 hover:text-white w-fit text-4xl border-2 border-[#FCC27F] rounded-md ">
-            <p className=' text-black px-4 font-light py-2'>
+          <button onClick={onScrollClick} className="hover:bg-[#d5a062] duration-200 hover:text-white w-fit text-4xl border-2 border-[#d5a062] rounded-md">
+            <p className=' px-4 font-light py-2 text-black hover:text-white'>
               3 Issue Series
             </p>
           </button> <br />
@@ -92,7 +92,7 @@ function Hero({ onScrollClick }) {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <p className='text-[22px] text-black block sm:hidden ml-5 w-fit px-3 py-2 border-2 hover:bg-[#FCC27F] text-[#000000] duration-200 hover:text-black border-[#FCC27F ] rounded-full'>
+          <p className='text-[22px] text-black block sm:hidden ml-5 w-fit px-3 py-2 border-2 hover:bg-[#d5a062] text-[#000000] duration-200 hover:text-#ffffff border-[#d5a062 ] rounded-full'>
             Editor of the Series
           </p>
           
@@ -107,7 +107,7 @@ function Hero({ onScrollClick }) {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <p className='text-[22px] text-black hidden sm:block -ml-2 mb-2 w-fit px-3 py-2 border-2 hover:bg-[#FCC27F] text-[#000000] duration-200 hover:text-black border-[#FCC27F] rounded-full'>
+          <p className='text-[22px] text-black hidden sm:block -ml-2 mb-2 w-fit px-3 py-2 border-2 hover:bg-[#d5a062] text-[#000000] duration-200 hover:text-white border-[#d5a062] rounded-full'>
             Editor of the Series
           </p>
           <h2 className='sm:text-[40px] text-[30px] font-semibold'>Dr. Arun Mohanty</h2>

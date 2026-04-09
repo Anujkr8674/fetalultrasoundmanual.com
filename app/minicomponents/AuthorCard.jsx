@@ -19,7 +19,7 @@ function AuthorCard({
   const hospitalParts = hospital.split(',');
 
   return (
-    <div className="flex flex-col items-center text-center gap-5 p-4 rounded-md backdrop-blur-md bg-[#007c82] border-4 shadow-[0_8px_32px_rgba(0,126,130,0.2)] hover:shadow-[0_10px_40px_rgba(0,126,130,0.3)] transition duration-300 sm:w-[400px] w-full">
+    <div className="flex flex-col items-center text-center gap-5 p-4 rounded-md backdrop-blur-md bg-[#d5a062] border-4 shadow-[0_8px_32px_rgba(0,126,130,0.2)] hover:shadow-[0_10px_40px_rgba(0,126,130,0.3)] transition duration-300 sm:w-[400px] w-full">
       
        {image && (
 <div class="relative w-40 h-40 rounded-lg overflow-hidden border-2 border-white shadow-lg">

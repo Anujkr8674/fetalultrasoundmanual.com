@@ -57,11 +57,11 @@ function IssueCard({ coverImg, issueNo, linkUrl }) {
           <div className="wave"></div>
           <div className='absolute flex flex-col left-20  justify-center items-center bottom-2'>
 
-            <h1 className='text-black text-xl mb-4  '>Issue <span className='text-[#007c82]'>{issueNo}</span> </h1>
+            <h1 className='text-black text-xl mb-4  '>Issue <span className='text-[#000000]'>{issueNo}</span> </h1>
            
 
             
-            <Link className='text-[18px] text-black -ml-2 mb-2 w-fit px-3 py-2 border-2 border-[#FCC27F] hover:bg-[#FCC27F] hover:text-black  duration-300 rounded-full' href={linkUrl}>Explore Case Studies</Link>
+            <Link className='text-[18px] text-black -ml-2 mb-2 w-fit px-3 py-2 border-2 border-[#d5a062] hover:bg-[#d5a062] hover:text-white  duration-300 rounded-full' href={linkUrl}>Explore Case Studies</Link>
           </div>
         </div>
 

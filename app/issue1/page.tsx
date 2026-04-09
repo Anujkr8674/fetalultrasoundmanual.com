@@ -53,13 +53,13 @@ function Page() {
 
       {/* Header */}
       <div className="max-w-7xl mx-auto flex md:flex-row justify-between items-center gap-8 mb-16">
-        <button className="hover:bg-[#FCC27F] duration-200 hover:text-black text-[#000000] sm:text-4xl text-2xl border-2 border-[#FCC27F] rounded-md">
-          <p className="px-4 font-light py-2">{issueTitle}</p>
+        <button className="hover:bg-[#d5a062] duration-200 hover:text-black text-[#000000] sm:text-4xl text-2xl border-2 border-[#d5a062] rounded-md">
+          <p className="px-4 font-light py-2 text-black hover:text-white">{issueTitle}</p>
         </button>
 
         <Link
           href="/"
-          className="px-6 py-2 hover:bg-[#FCC27F] hover:text-black duration-300 scale-75 sm:scale-100 rounded-full border-2 border-[#FCC27F] text-[#000000] transition text-sm font-medium"
+          className="px-6 py-2 hover:bg-[#d5a062] hover:text-black duration-300 scale-75 sm:scale-100 rounded-full border-2 border-[#d5a062] text-[#000000] transition text-sm font-medium text-black hover:text-white"
         >
           ← Back to Home
         </Link>

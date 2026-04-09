@@ -8,15 +8,15 @@ import { motion } from 'framer-motion';
 
 function Page() {
   return (
-    <div className="min-h-screen  custom text-[#007c82] px-6 py-16">
+    <div className="min-h-screen  custom text-[#d5a062] px-6 py-16">
       <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]"></div>
 
 
       {/* Hero Section */}
       <div className="md:max-w-7xl mx-auto text-center mb-12">
         <h1 className="text-3xl  md:text-5xl font-light ">
-          <button className="hover:bg-[#FCC27F] duration-200 text-[#000000] hover:text-black  text-4xl border-2 border-[#FCC27F] rounded-md ">
-            <p className='px-4 font-light py-2'>
+           <button className="hover:bg-[#d5a062] duration-200 text-[#000000] hover:text-black  text-4xl border-2 border-[#d5a062] rounded-md ">
+            <p className='px-4 font-light py-2 text-black hover:text-white'>
               Issue 1 - Case 2
             </p>
           </button>
@@ -26,7 +26,7 @@ function Page() {
         <div className="mt-6">
           <Link
             href="/issue1"
-            className='px-6 py-2 hover:bg-[#FCC27F] hover:text-black duration-300 scale-75 sm:scale-100 rounded-full border-2 border-[#FCC27F] text-[#000000] transition text-sm font-medium'
+            className='px-6 py-2 hover:bg-[#d5a062] hover:text-black duration-300 scale-75 sm:scale-100 rounded-full border-2 border-[#d5a062] text-[#000000] transition text-sm font-medium text-black hover:text-white'
           >
             ← Back to Issue 1
           </Link>

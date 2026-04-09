@@ -7,7 +7,7 @@ function CaseStudyCard({ title, description, href, caseNo }) {
   return (
     <Link
       href={href}
-      className="relative backdrop-blur-md text-white hover:text-[#007c82] bg-[#007c82] hover:bg-white border-2 border-[#007c82]/90 rounded-md p-6 sm:h-72 h-full w-full overflow-hidden group hover:scale-[1.03] transition-transform duration-300 block"
+      className="relative backdrop-blur-md text-white hover:text-[#d5a062] bg-[#d5a062] hover:bg-white border-2 border-[#d5a062]/90 rounded-md p-6 sm:h-72 h-full w-full overflow-hidden group hover:scale-[1.03] transition-transform duration-300 block"
     >
       {/* Main Content */}
       <div className="relative z-10">
@@ -23,7 +23,7 @@ function CaseStudyCard({ title, description, href, caseNo }) {
           {description}
         </h2>
 
-        <span className="inline-block px-6 py-3 font-medium border-2 border-[#007c82] bg-white hover:bg-[#007c82] text-[#007c82] backdrop-blur hover:text-[#fff] transition">
+        <span className="inline-block px-6 py-3 font-medium border-2 border-[#d5a062] bg-white hover:bg-[#d5a062] text-[#d5a062] backdrop-blur hover:text-[#fff] transition">
           View Now
         </span>
       </div>
