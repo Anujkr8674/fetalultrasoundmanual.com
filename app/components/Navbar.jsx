@@ -6,7 +6,7 @@ function Navbar() {
     <div className=' p-4   border-b-6 border-#FFF212-900  
      text-yellow-500'>
       <div className='flex flex-col  gap-4 sm:flex-row justify-between items-center'>
-        <Link href={'/'}> <img src="/logo.svg"
+        <Link href={'/'}> <img src="https://fetalultrasoundmanual.com/assets/logo.svg"
           alt=""
           className='w-36' />
         </Link>
