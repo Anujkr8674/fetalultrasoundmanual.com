@@ -40,7 +40,23 @@ function Page() {
           <h2 className=" text-[#FCC27F] text-2xl md:text-3xl font-semibold mb-10 border-b-1 py-2   text-center">Researchers & Contributors</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
-         
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <AuthorCard
+              title="Dr. Neharika Malhotra"
+              qualification="MBBS MD (Gold Medalist) DRM (Germany) DMIS FICMCH FMAS FICOG, ICOG Fellowship in Reproductive Medicine DGC"
+              experience="Managing Director and Consultant ObGyn and Infertility"
+              department="Department of Obstetrics and Gynecology and Infertility"
+              hospital="ART Rainbow IVF, Ujala Cygnus Rainbow Hospital and Malhotra Nursing and Maternity Home"
+              designation="Assistant Editor Journal of IJHRRD"
+              location="Agra, Uttar Pradesh, India"
+              image="https://fetalultrasoundmanual.com/assets/author-images/Neha.png"
+            />
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, x: 100 }}
@@ -77,23 +93,7 @@ function Page() {
               image="https://fetalultrasoundmanual.com/assets/author-images/Karunakar.png"
             />
           </motion.div>
-           <motion.div
-            initial={{ opacity: 0, x: -100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <AuthorCard
-              title="Dr. Neharika Malhotra"
-              qualification="MBBS MD (Gold Medalist) DRM (Germany) DMIS FICMCH FMAS FICOG, ICOG Fellowship in Reproductive Medicine DGC"
-              experience="Managing Director and Consultant ObGyn and Infertility"
-              department="Department of Obstetrics and Gynecology and Infertility"
-              hospital="ART Rainbow IVF, Ujala Cygnus Rainbow Hospital and Malhotra Nursing and Maternity Home"
-              designation="Assistant Editor Journal of IJHRRD"
-              location="Agra, Uttar Pradesh, India"
-              image="https://fetalultrasoundmanual.com/assets/author-images/Neha.png"
-            />
-          </motion.div>
+          
         </div>
       </section>
 
@@ -131,13 +131,13 @@ function Page() {
            <VideoCard
             videoSrc="https://fetalultrasoundmanual.com/assets/videos/Videos_Case 1_Issue 1/Video 3A Development of neural tube.mp4"
             title="Video 3A"
-            about="Development of neural tube.mp4"
+            about="Development of neural tube"
           />
 
            <VideoCard
             videoSrc="https://fetalultrasoundmanual.com/assets/videos/Videos_Case 1_Issue 1/Video 3B Development of neural tube.mp4"
             title="Video 3B"
-            about="Development of neural tube.mp4"
+            about="Development of neural tube"
           />
 
 

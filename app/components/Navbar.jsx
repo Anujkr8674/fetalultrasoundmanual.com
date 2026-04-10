@@ -16,7 +16,7 @@ function Navbar() {
           href={'/'}
           className='hover:scale-95 duration-200 sm:text-lg text-sm bg-[#FCC27F] rounded-full p-4 text-white font-[700]'
         >
-          Cardiology Casebook of IVUS/OCT with Videos
+          FOGSI Practical Fetal Ultrasound: Detecting Birth Defects (A Case-Based Manual) with Videos
         </Link>
 
       </div>

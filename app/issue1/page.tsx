@@ -69,7 +69,7 @@ function Page() {
       <div className="space-y-10 max-w-7xl mx-auto">
         <AnimatedCase
         
-          imgSrc="https://fetalultrasoundmanual.com/assets/issue-images/issue1cs1.png"
+          imgSrc="https://fetalultrasoundmanual.com/assets/issue-images/Case 1_ Photo.png"
           title="PREVENTION OF NEURAL TUBE DEFECTS BY ROUTINE PERICONCEPTIONAL FOLIC ACID SUPPLEMENTATION: COMMENTARY ON A CASE REPORT"
           description=""
           href="/issue1/case1"
@@ -77,7 +77,7 @@ function Page() {
           reverse={false}
         />
         <AnimatedCase
-          imgSrc="https://fetalultrasoundmanual.com/assets/issue-images/issue1cs2.png"
+          imgSrc="https://fetalultrasoundmanual.com/assets/issue-images/Case 2_Photo.png"
           title="RECURRENT PREGNANCY LOSS: COMPREHENSIVE REVIEW OF NUTRITIONAL AND CLINICAL MANAGEMENT WITH EMPHASIS ON FOLATE SUPPLEMENTATION AND ULTRASOUND IMAGING OF CAUSES IN RPL"
           description=""
           href="/issue1/case2"
