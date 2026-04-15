@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
  
 
 export const metadata = {
-  title: "IVUS",
+  title: "Fetal Ultra Sound Manual",
   description: "",
 };
 
