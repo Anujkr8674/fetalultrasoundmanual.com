@@ -66,7 +66,7 @@ function Hero({ onScrollClick }) {
           <br /><br />
           Through carefully selected cases, expert commentary, and focused learning objectives, the manual covers key areas including first-trimester risk assessment, recurrent pregnancy loss, placental disorders, fetal growth restriction, hypertensive disorders, diabetes and obesity in pregnancy, multiple gestations, congenital anomalies, Doppler-based fetal surveillance, and emergency obstetric ultrasound. Each case report emphasizes practical interpretation of ultrasound findings and their translation into effective patient management.
           <br /> <br />
-          This manual aims to help clinicians use ultrasound not merely as a diagnostic tool, but as an essential guide in managing complex and high-risk pregnancies to improve maternal and fetal outcomes.
+          This manual aims to helps clinicians use ultrasound not merely as a diagnostic tool, but as an essential guide in managing complex and high-risk pregnancies to improve maternal and fetal outcomes.
           <br /><br />
 
 
