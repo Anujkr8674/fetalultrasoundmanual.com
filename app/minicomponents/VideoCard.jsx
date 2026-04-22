@@ -4,7 +4,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-function VideoCard({ videoSrc, thumbnailSrc, title, about }) {
+function VideoCard({ videoSrc, thumbnailSrc = "", title, about }) {
   const hasVideoSrc = videoSrc && videoSrc.trim() !== "";
   const isVideo = hasVideoSrc && /\.(mp4|webm|mov|m4v|avi)$/i.test(videoSrc);
   const [isModalOpen, setIsModalOpen] = useState(false);
