@@ -5,10 +5,11 @@ import {
   isStrongPassword,
   normalizeEmail,
 } from "../../../../lib/auth";
+import { createRedirectUrl } from "../../../../lib/request-url";
 import { ensureUserTable, query } from "../../../../lib/db";
 
 function redirectWithError(request, message) {
-  const url = new URL("/user/forgotpassword", request.url);
+  const url = createRedirectUrl(request, "/user/forgotpassword");
   url.searchParams.set("error", message);
   return NextResponse.redirect(url, 303);
 }
@@ -68,7 +69,7 @@ export async function POST(request) {
     );
 
     return NextResponse.redirect(
-      new URL("/user/login?message=password_reset_success", request.url),
+      createRedirectUrl(request, "/user/login?message=password_reset_success"),
       303
     );
   } catch (error) {

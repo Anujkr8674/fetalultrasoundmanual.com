@@ -4,10 +4,11 @@ import {
   hashResetToken,
   normalizeEmail,
 } from "../../../../lib/auth";
+import { createRedirectUrl } from "../../../../lib/request-url";
 import { ensureUserTable, query } from "../../../../lib/db";
 
 function redirectWithMessage(request, params) {
-  const url = new URL("/user/forgotpassword", request.url);
+  const url = createRedirectUrl(request, "/user/forgotpassword");
   Object.entries(params).forEach(([key, value]) => {
     if (value) {
       url.searchParams.set(key, value);

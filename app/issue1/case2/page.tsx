@@ -150,6 +150,10 @@ function Page() {
     setShowGate(false);
   }
 
+  function handleCloseGate() {
+    setShowGate(false);
+  }
+
   return (
     <div
       className="relative min-h-screen overflow-hidden bg-cover bg-center bg-no-repeat px-6 py-16 text-[#d5a062]"
@@ -161,7 +165,15 @@ function Page() {
 
       {showGate && authStatus !== "checking" ? (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
-          <div className="w-full max-w-md rounded-[28px] border border-white/10 bg-white p-6 text-slate-900 shadow-[0_25px_80px_rgba(0,0,0,0.3)]">
+          <div className="relative w-full max-w-md rounded-[28px] border border-white/10 bg-white p-6 text-slate-900 shadow-[0_25px_80px_rgba(0,0,0,0.3)]">
+            <button
+              type="button"
+              onClick={handleCloseGate}
+              aria-label="Close dialog"
+              className="absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-xl font-semibold text-slate-500 transition hover:border-slate-300 hover:text-slate-900"
+            >
+              ×
+            </button>
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#7e63ff]">
               Access Mode
             </p>

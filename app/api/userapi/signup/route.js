@@ -10,10 +10,11 @@ import {
   sanitizePhone,
   signToken,
 } from "../../../../lib/auth";
+import { createRedirectUrl } from "../../../../lib/request-url";
 import { ensureUserTable, getPool, query } from "../../../../lib/db";
 
 function redirectWithError(request, message) {
-  const url = new URL("/user/signup", request.url);
+  const url = createRedirectUrl(request, "/user/signup");
   url.searchParams.set("error", message);
   return NextResponse.redirect(url, 303);
 }
@@ -76,7 +77,10 @@ export async function POST(request) {
     const userId = result.insertId;
     const token = signToken({ sub: userId, email, tokenVersion: 0 });
 
-    const response = NextResponse.redirect(new URL("/user/dashboardoverview", request.url), 303);
+    const response = NextResponse.redirect(
+      createRedirectUrl(request, "/user/dashboardoverview"),
+      303
+    );
     response.cookies.set(AUTH_COOKIE_NAME, token, {
       httpOnly: true,
       sameSite: "lax",

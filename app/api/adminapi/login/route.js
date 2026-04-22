@@ -4,10 +4,11 @@ import {
   signToken,
   verifyPassword,
 } from "../../../../lib/auth";
+import { createRedirectUrl } from "../../../../lib/request-url";
 import { ensureDefaultAdminAccount, query } from "../../../../lib/db";
 
 function redirectWithError(request, message) {
-  const url = new URL("/admin/login", request.url);
+  const url = createRedirectUrl(request, "/admin/login");
   url.searchParams.set("error", message);
   return NextResponse.redirect(url, 303);
 }
@@ -49,7 +50,10 @@ export async function POST(request) {
       tokenVersion: admin.token_version,
     });
 
-    const response = NextResponse.redirect(new URL("/admin/dashboardoverview", request.url), 303);
+    const response = NextResponse.redirect(
+      createRedirectUrl(request, "/admin/dashboardoverview"),
+      303
+    );
     response.cookies.set(ADMIN_AUTH_COOKIE_NAME, token, {
       httpOnly: true,
       sameSite: "lax",

@@ -5,20 +5,13 @@ import {
   signToken,
   verifyPassword,
 } from "../../../../lib/auth";
+import { createRedirectUrl, getSafeRedirectPath } from "../../../../lib/request-url";
 import { ensureUserTable, query } from "../../../../lib/db";
 
 function redirectWithError(request, message) {
-  const url = new URL("/user/login", request.url);
+  const url = createRedirectUrl(request, "/user/login");
   url.searchParams.set("error", message);
   return NextResponse.redirect(url, 303);
-}
-
-function getSafeRedirectPath(value) {
-  const redirectTo = String(value || "").trim();
-  if (!redirectTo.startsWith("/")) {
-    return "/user/dashboardoverview";
-  }
-  return redirectTo;
 }
 
 export async function POST(request) {
@@ -58,7 +51,7 @@ export async function POST(request) {
       tokenVersion: user.token_version,
     });
 
-    const response = NextResponse.redirect(new URL(redirectTo, request.url), 303);
+    const response = NextResponse.redirect(createRedirectUrl(request, redirectTo), 303);
     response.cookies.set(AUTH_COOKIE_NAME, token, {
       httpOnly: true,
       sameSite: "lax",

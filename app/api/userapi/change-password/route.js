@@ -6,10 +6,11 @@ import {
   isStrongPassword,
   verifyPassword,
 } from "../../../../lib/auth";
+import { createRedirectUrl } from "../../../../lib/request-url";
 import { ensureUserTable, getPool } from "../../../../lib/db";
 
 function redirectWithError(request, message) {
-  const url = new URL("/user/changepassword", request.url);
+  const url = createRedirectUrl(request, "/user/changepassword");
   url.searchParams.set("error", message);
   return NextResponse.redirect(url, 303);
 }
@@ -59,7 +60,7 @@ export async function POST(request) {
     );
 
     const response = NextResponse.redirect(
-      new URL("/user/login?message=password_changed", request.url),
+      createRedirectUrl(request, "/user/login?message=password_changed"),
       303
     );
     response.cookies.set(AUTH_COOKIE_NAME, "", {

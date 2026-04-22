@@ -5,10 +5,11 @@ import {
   normalizeEmail,
   signToken,
 } from "../../../../lib/auth";
+import { createRedirectUrl } from "../../../../lib/request-url";
 import { ensureUserTable, getPool, query } from "../../../../lib/db";
 
 function redirectToProfile(request, params = {}) {
-  const url = new URL("/user/myprofile", request.url);
+  const url = createRedirectUrl(request, "/user/myprofile");
   Object.entries(params).forEach(([key, value]) => {
     if (value) url.searchParams.set(key, value);
   });
@@ -16,7 +17,7 @@ function redirectToProfile(request, params = {}) {
 }
 
 function redirectToEdit(request, params = {}) {
-  const url = new URL("/user/editprofile", request.url);
+  const url = createRedirectUrl(request, "/user/editprofile");
   Object.entries(params).forEach(([key, value]) => {
     if (value) url.searchParams.set(key, value);
   });
