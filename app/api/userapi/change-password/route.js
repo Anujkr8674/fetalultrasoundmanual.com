@@ -1,0 +1,77 @@
+import { NextResponse } from "next/server";
+import {
+  AUTH_COOKIE_NAME,
+  getAuthenticatedUserFromToken,
+  hashPassword,
+  isStrongPassword,
+  verifyPassword,
+} from "../../../../lib/auth";
+import { ensureUserTable, getPool } from "../../../../lib/db";
+
+function redirectWithError(request, message) {
+  const url = new URL("/user/changepassword", request.url);
+  url.searchParams.set("error", message);
+  return NextResponse.redirect(url, 303);
+}
+
+export async function POST(request) {
+  try {
+    await ensureUserTable();
+    const user = await getAuthenticatedUserFromToken(request.cookies.get(AUTH_COOKIE_NAME)?.value);
+    if (!user) {
+      return redirectWithError(request, "session_expired");
+    }
+
+    const formData = await request.formData();
+    const currentPassword = String(formData.get("currentPassword") || "");
+    const newPassword = String(formData.get("newPassword") || "");
+    const confirmPassword = String(formData.get("confirmPassword") || "");
+
+    if (!currentPassword || !newPassword || !confirmPassword) {
+      return redirectWithError(request, "All fields are required.");
+    }
+
+    const [rows] = await getPool().execute(
+      "SELECT password_hash FROM users WHERE id = ? LIMIT 1",
+      [user.id]
+    );
+    const currentHash = rows[0]?.password_hash;
+    const validCurrentPassword = await verifyPassword(currentPassword, currentHash);
+    if (!validCurrentPassword) {
+      return redirectWithError(request, "Current password is incorrect.");
+    }
+
+    if (newPassword !== confirmPassword) {
+      return redirectWithError(request, "New password and confirm password must match.");
+    }
+
+    if (!isStrongPassword(newPassword)) {
+      return redirectWithError(
+        request,
+        "Password must be 8+ chars with uppercase, lowercase, number, and symbol."
+      );
+    }
+
+    const passwordHash = await hashPassword(newPassword);
+    await getPool().execute(
+      "UPDATE users SET password_hash = ?, token_version = token_version + 1 WHERE id = ?",
+      [passwordHash, user.id]
+    );
+
+    const response = NextResponse.redirect(
+      new URL("/user/login?message=password_changed", request.url),
+      303
+    );
+    response.cookies.set(AUTH_COOKIE_NAME, "", {
+      httpOnly: true,
+      sameSite: "lax",
+      secure: process.env.NODE_ENV === "production",
+      path: "/",
+      maxAge: 0,
+    });
+    return response;
+  } catch (error) {
+    console.error("Change password error:", error);
+    return redirectWithError(request, "Unable to change password.");
+  }
+}
