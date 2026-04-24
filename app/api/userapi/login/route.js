@@ -1,9 +1,7 @@
 import { NextResponse } from "next/server";
 import {
   AUTH_COOKIE_NAME,
-  normalizeEmail,
   signToken,
-  verifyPassword,
 } from "../../../../lib/auth";
 import { createRedirectUrl, getSafeRedirectPath } from "../../../../lib/request-url";
 import { ensureUserTable, query } from "../../../../lib/db";
@@ -19,35 +17,35 @@ export async function POST(request) {
     await ensureUserTable();
 
     const formData = await request.formData();
-    const email = normalizeEmail(formData.get("email"));
-    const password = String(formData.get("password") || "");
+    const name = String(formData.get("name") || "").trim();
+    const place = String(formData.get("place") || "").trim();
     const redirectTo = getSafeRedirectPath(formData.get("redirectTo"));
 
-    if (!email || !password) {
-      return redirectWithError(request, "Email and password are required.");
+    if (!name || !place) {
+      return redirectWithError(request, "Full name and place are required.");
     }
 
     const users = await query(
-      `SELECT id, email, password_hash, token_version
+      `SELECT id, name, place, token_version
        FROM users
-       WHERE email = ?
+       WHERE name = ?
        LIMIT 1`,
-      [email]
+      [name]
     );
 
     const user = users[0];
     if (!user) {
-      return redirectWithError(request, "Invalid email or password.");
+      return redirectWithError(request, "Invalid full name or place.");
     }
 
-    const passwordMatches = await verifyPassword(password, user.password_hash);
-    if (!passwordMatches) {
-      return redirectWithError(request, "Invalid email or password.");
+    const storedPlace = String(user.place || "");
+    if (storedPlace !== place) {
+      return redirectWithError(request, "Invalid full name or place.");
     }
 
     const token = signToken({
       sub: user.id,
-      email: user.email,
+      name: user.name,
       tokenVersion: user.token_version,
     });
 

@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
 import CaseStudyCard from '../minicomponents/caseStudyCard';
+import QuickAuthGateModal from "../components/QuickAuthGateModal";
 
 function AnimatedCase({ imgSrc, title, description, href, caseNo, reverse }) {
   const ref = useRef(null);
@@ -45,9 +46,51 @@ function AnimatedCase({ imgSrc, title, description, href, caseNo, reverse }) {
 
 function Page() {
   const issueTitle = 'Issue 1';
+  const [authStatus, setAuthStatus] = useState("checking");
+  const [showGate, setShowGate] = useState(false);
+
+  useEffect(() => {
+    let active = true;
+
+    async function loadSession() {
+      try {
+        const response = await fetch("/api/userapi/me", {
+          credentials: "include",
+          cache: "no-store",
+        });
+        if (!active) return;
+        if (response.ok) {
+          setAuthStatus("authenticated");
+          setShowGate(false);
+        } else {
+          setAuthStatus("guest");
+          setShowGate(true);
+        }
+      } catch {
+        if (active) {
+          setAuthStatus("guest");
+          setShowGate(true);
+        }
+      }
+    }
+
+    loadSession();
+    return () => {
+      active = false;
+    };
+  }, []);
 
   return (
     <div className="min-h-screen custom text-[#007c82] px-6 py-20">
+      <QuickAuthGateModal
+        open={showGate && authStatus !== "checking"}
+        onClose={() => setShowGate(false)}
+        onGuestContinue={() => setShowGate(false)}
+        onAuthenticated={() => {
+          setAuthStatus("authenticated");
+          setShowGate(false);
+        }}
+      />
       {/* Background pattern */}
       <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]"></div>
 

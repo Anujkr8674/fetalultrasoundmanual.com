@@ -11,8 +11,6 @@ function messageFrom(searchParams) {
   return error || message || "";
 }
 
-const genderOptions = ["Male", "Female", "Other"];
-
 export default async function UserSignupPage({ searchParams }) {
   const currentUser = await getAuthenticatedUserFromCookies();
   if (currentUser) {
@@ -38,10 +36,10 @@ export default async function UserSignupPage({ searchParams }) {
                   Create account
                 </p>
                 <h1 className="mt-5 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-                  Signup in seconds
+                  Quick signup
                 </h1>
                 <p className="mt-3 text-sm leading-6 text-slate-600">
-                  Enter your details to create a secure user account.
+                  Enter full name and place to create account.
                 </p>
               </div>
 
@@ -62,87 +60,19 @@ export default async function UserSignupPage({ searchParams }) {
                     maxLength={120}
                     autoComplete="name"
                     placeholder="Enter your name"
-                    pattern="[A-Za-z][A-Za-z\s.'-]*"
-                    title="Use letters only, with spaces allowed."
                     className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none placeholder:text-slate-400 focus:border-[#39c7d4] focus:bg-white"
                   />
                 </div>
 
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-slate-700">Email</label>
+                  <label className="mb-2 block text-sm font-medium text-slate-700">Place</label>
                   <input
-                    name="email"
-                    type="email"
+                    name="place"
+                    type="text"
                     required
-                    maxLength={191}
-                    autoComplete="email"
-                    placeholder="ram123@gmail.com"
-                    className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none placeholder:text-slate-400 focus:border-[#39c7d4] focus:bg-white"
-                  />
-                </div>
-
-                <div>
-                  <label className="mb-2 block text-sm font-medium text-slate-700">Phone</label>
-                  <input
-                    name="phone"
-                    type="tel"
-                    inputMode="numeric"
-                    maxLength={10}
-                    pattern="[0-9]{7,15}"
-                    placeholder="Digits only, optional"
-                    title="Use digits only, 7 to 15 numbers."
-                    className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none placeholder:text-slate-400 focus:border-[#39c7d4] focus:bg-white"
-                  />
-                </div>
-
-                <div>
-                  <label className="mb-2 block text-sm font-medium text-slate-700">Gender</label>
-                  <div className="grid gap-3 sm:grid-cols-3">
-                    {genderOptions.map((option) => (
-                      <label
-                        key={option}
-                        className="flex cursor-pointer items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700 transition hover:border-[#39c7d4] hover:bg-white"
-                      >
-                        <input
-                          name="gender"
-                          type="radio"
-                          value={option}
-                          required
-                          className="h-4 w-4 accent-[#39c7d4]"
-                        />
-                        {option}
-                      </label>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <label className="mb-2 block text-sm font-medium text-slate-700">Password</label>
-                  <input
-                    name="password"
-                    type="password"
-                    required
-                    minLength={8}
-                    maxLength={128}
-                    autoComplete="new-password"
-                    placeholder="Min 8 chars, mixed case, number, symbol"
-                    title="Minimum 8 characters with uppercase, lowercase, number, and symbol."
-                    className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none placeholder:text-slate-400 focus:border-[#39c7d4] focus:bg-white"
-                  />
-                </div>
-
-                <div>
-                  <label className="mb-2 block text-sm font-medium text-slate-700">
-                    Confirm password
-                  </label>
-                  <input
-                    name="confirmPassword"
-                    type="password"
-                    required
-                    minLength={8}
-                    maxLength={128}
-                    autoComplete="new-password"
-                    placeholder="Repeat password"
+                    maxLength={255}
+                    autoComplete="off"
+                    placeholder="Enter place (city or any text)"
                     className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none placeholder:text-slate-400 focus:border-[#39c7d4] focus:bg-white"
                   />
                 </div>

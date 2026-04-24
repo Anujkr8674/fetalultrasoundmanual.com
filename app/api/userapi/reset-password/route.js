@@ -1,9 +1,6 @@
 import { NextResponse } from "next/server";
 import {
-  hashPassword,
   hashResetToken,
-  isStrongPassword,
-  normalizeEmail,
 } from "../../../../lib/auth";
 import { createRedirectUrl } from "../../../../lib/request-url";
 import { ensureUserTable, query } from "../../../../lib/db";
@@ -19,32 +16,25 @@ export async function POST(request) {
     await ensureUserTable();
 
     const formData = await request.formData();
-    const email = normalizeEmail(formData.get("email"));
+    const name = String(formData.get("name") || "").trim();
     const token = String(formData.get("token") || "").trim();
-    const newPassword = String(formData.get("newPassword") || "");
-    const confirmPassword = String(formData.get("confirmPassword") || "");
+    const newPlace = String(formData.get("newPlace") || "").trim();
+    const confirmPlace = String(formData.get("confirmPlace") || "").trim();
 
-    if (!email || !token || !newPassword || !confirmPassword) {
+    if (!name || !token || !newPlace || !confirmPlace) {
       return redirectWithError(request, "All fields are required.");
     }
 
-    if (newPassword !== confirmPassword) {
-      return redirectWithError(request, "New password and confirm password must match.");
-    }
-
-    if (!isStrongPassword(newPassword)) {
-      return redirectWithError(
-        request,
-        "Password must be 8+ chars with uppercase, lowercase, number, and symbol."
-      );
+    if (newPlace !== confirmPlace) {
+      return redirectWithError(request, "New place and confirm place must match.");
     }
 
     const users = await query(
       `SELECT id, reset_token_hash, reset_token_expires
        FROM users
-       WHERE email = ?
+       WHERE name = ?
        LIMIT 1`,
-      [email]
+      [name]
     );
 
     const user = users[0];
@@ -60,12 +50,11 @@ export async function POST(request) {
       return redirectWithError(request, "Reset token is invalid or expired.");
     }
 
-    const passwordHash = await hashPassword(newPassword);
     await query(
       `UPDATE users
-       SET password_hash = ?, reset_token_hash = NULL, reset_token_expires = NULL, token_version = token_version + 1
+       SET place = ?, reset_token_hash = NULL, reset_token_expires = NULL, token_version = token_version + 1
        WHERE id = ?`,
-      [passwordHash, user.id]
+      [newPlace, user.id]
     );
 
     return NextResponse.redirect(

@@ -35,25 +35,19 @@ export default async function MyProfilePage() {
             <div className="mt-2 text-lg font-semibold text-slate-900">{user.name}</div>
           </article>
           <article className="rounded-3xl bg-slate-50 p-5">
-            <div className="text-sm text-slate-500">Email</div>
-            <div className="mt-2 break-all text-lg font-semibold text-slate-900">{user.email}</div>
-          </article>
-          <article className="rounded-3xl bg-slate-50 p-5">
-            <div className="text-sm text-slate-500">Phone</div>
-            <div className="mt-2 text-lg font-semibold text-slate-900">
-              {user.phone || "Not provided"}
-            </div>
-          </article>
-          <article className="rounded-3xl bg-slate-50 p-5">
-            <div className="text-sm text-slate-500">Gender</div>
-            <div className="mt-2 text-lg font-semibold text-slate-900">
-              {user.gender || "Not provided"}
-            </div>
+            <div className="text-sm text-slate-500">Place</div>
+            <div className="mt-2 break-all text-lg font-semibold text-slate-900">{user.place}</div>
           </article>
           <article className="rounded-3xl bg-slate-50 p-5">
             <div className="text-sm text-slate-500">Registered on</div>
             <div className="mt-2 text-lg font-semibold text-slate-900">
               {formatDate(user.created_at)}
+            </div>
+          </article>
+          <article className="rounded-3xl bg-slate-50 p-5">
+            <div className="text-sm text-slate-500">Last updated</div>
+            <div className="mt-2 text-lg font-semibold text-slate-900">
+              {formatDate(user.updated_at)}
             </div>
           </article>
         </div>

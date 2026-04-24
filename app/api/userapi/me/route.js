@@ -14,9 +14,9 @@ export async function GET(request) {
     user: {
       id: user.id,
       name: user.name,
-      email: user.email,
-      phone: user.phone,
+      place: user.place,
       createdAt: user.created_at,
+      updatedAt: user.updated_at,
     },
   });
 }

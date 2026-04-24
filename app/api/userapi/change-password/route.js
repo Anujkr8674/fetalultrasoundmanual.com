@@ -2,9 +2,6 @@ import { NextResponse } from "next/server";
 import {
   AUTH_COOKIE_NAME,
   getAuthenticatedUserFromToken,
-  hashPassword,
-  isStrongPassword,
-  verifyPassword,
 } from "../../../../lib/auth";
 import { createRedirectUrl } from "../../../../lib/request-url";
 import { ensureUserTable, getPool } from "../../../../lib/db";
@@ -24,39 +21,30 @@ export async function POST(request) {
     }
 
     const formData = await request.formData();
-    const currentPassword = String(formData.get("currentPassword") || "");
-    const newPassword = String(formData.get("newPassword") || "");
-    const confirmPassword = String(formData.get("confirmPassword") || "");
+    const currentPlace = String(formData.get("currentPlace") || "").trim();
+    const newPlace = String(formData.get("newPlace") || "").trim();
+    const confirmPlace = String(formData.get("confirmPlace") || "").trim();
 
-    if (!currentPassword || !newPassword || !confirmPassword) {
+    if (!currentPlace || !newPlace || !confirmPlace) {
       return redirectWithError(request, "All fields are required.");
     }
 
     const [rows] = await getPool().execute(
-      "SELECT password_hash FROM users WHERE id = ? LIMIT 1",
+      "SELECT place FROM users WHERE id = ? LIMIT 1",
       [user.id]
     );
-    const currentHash = rows[0]?.password_hash;
-    const validCurrentPassword = await verifyPassword(currentPassword, currentHash);
-    if (!validCurrentPassword) {
-      return redirectWithError(request, "Current password is incorrect.");
+    const storedPlace = String(rows[0]?.place || "");
+    if (storedPlace !== currentPlace) {
+      return redirectWithError(request, "Current place is incorrect.");
     }
 
-    if (newPassword !== confirmPassword) {
-      return redirectWithError(request, "New password and confirm password must match.");
+    if (newPlace !== confirmPlace) {
+      return redirectWithError(request, "New place and confirm place must match.");
     }
 
-    if (!isStrongPassword(newPassword)) {
-      return redirectWithError(
-        request,
-        "Password must be 8+ chars with uppercase, lowercase, number, and symbol."
-      );
-    }
-
-    const passwordHash = await hashPassword(newPassword);
     await getPool().execute(
-      "UPDATE users SET password_hash = ?, token_version = token_version + 1 WHERE id = ?",
-      [passwordHash, user.id]
+      "UPDATE users SET place = ?, token_version = token_version + 1 WHERE id = ?",
+      [newPlace, user.id]
     );
 
     const response = NextResponse.redirect(

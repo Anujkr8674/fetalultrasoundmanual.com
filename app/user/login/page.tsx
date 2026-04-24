@@ -2,7 +2,6 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import Navbar from "../../components/Navbar";
 import { getAuthenticatedUserFromCookies } from "../../../lib/auth";
-import PasswordField from "./PasswordField";
 
 export const dynamic = "force-dynamic";
 
@@ -11,8 +10,8 @@ function getFeedback(searchParams) {
   const map = {
     session_expired: "Your session expired. Please login again.",
     logged_out: "You have been logged out successfully.",
-    password_reset_success: "Password reset successful. You can login now.",
-    password_changed: "Password updated successfully. Please login again.",
+    password_reset_success: "Place reset successful. You can login now.",
+    password_changed: "Place updated successfully. Please login again.",
     login_required_for_like: "Please login to like this case.",
   };
 
@@ -56,7 +55,7 @@ export default async function UserLoginPage({ searchParams }) {
                   Login to your account
                 </h1>
                 <p className="mt-3 text-sm leading-6 text-slate-600">
-                  Enter your email and password to continue.
+                  Enter full name and place to continue.
                 </p>
               </div>
 
@@ -69,16 +68,25 @@ export default async function UserLoginPage({ searchParams }) {
               <form action="/api/userapi/login" method="post" className="space-y-4">
                 <input type="hidden" name="redirectTo" value={redirectTo} />
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-slate-700">Email</label>
+                  <label className="mb-2 block text-sm font-medium text-slate-700">Full name</label>
                   <input
-                    name="email"
-                    type="email"
+                    name="name"
+                    type="text"
                     required
-                    placeholder="ram123@gmail.com"
+                    placeholder="Enter your full name"
                     className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none placeholder:text-slate-400 focus:border-[#39c7d4] focus:bg-white"
                   />
                 </div>
-                <PasswordField />
+                <div>
+                  <label className="mb-2 block text-sm font-medium text-slate-700">Place</label>
+                  <input
+                    name="place"
+                    type="text"
+                    required
+                    placeholder="Enter place"
+                    className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none placeholder:text-slate-400 focus:border-[#39c7d4] focus:bg-white"
+                  />
+                </div>
 
                 <button
                   type="submit"

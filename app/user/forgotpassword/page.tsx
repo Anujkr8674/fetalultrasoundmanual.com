@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getAuthenticatedUserFromCookies } from "../../../lib/auth";
-import PasswordField from "../login/PasswordField";
 
 export const dynamic = "force-dynamic";
 
@@ -13,6 +12,7 @@ export default async function UserForgotPasswordPage({ searchParams }) {
 
   const message = searchParams?.message || searchParams?.error || "";
   const token = searchParams?.token || "";
+  const fullName = searchParams?.name || "";
 
   return (
     <div
@@ -29,10 +29,10 @@ export default async function UserForgotPasswordPage({ searchParams }) {
                 Forgot password
               </p>
               <h1 className="mt-5 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-                Reset your password
+                Reset your place
               </h1>
               <p className="mt-3 text-sm leading-6 text-slate-600">
-                Generate a token, then use it to set a new strong password.
+                Generate a token, then use it to set a new place value.
               </p>
             </div>
 
@@ -51,31 +51,38 @@ export default async function UserForgotPasswordPage({ searchParams }) {
             <div className="space-y-6">
               <form action="/api/userapi/forgot-password" method="post" className="space-y-4">
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-slate-700">Email</label>
+                  <label className="mb-2 block text-sm font-medium text-slate-700">Full name</label>
                   <input
-                    name="email"
-                    type="email"
+                    name="name"
+                    type="text"
                     required
-                    placeholder="Enter registered email"
+                    defaultValue={fullName}
+                    placeholder="Enter registered full name"
                     className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none placeholder:text-slate-400 focus:border-[#39c7d4] focus:bg-white"
                   />
                 </div>
                 <button
                   type="submit"
-                  className="w-full rounded-2xl border border-[#d5a062] px-4 py-3 font-medium text-slate-900 transition duration-200 hover:bg-[#d5a062] hover:text-white"
+                  disabled={Boolean(token)}
+                  className={`w-full rounded-2xl border px-4 py-3 font-medium transition duration-200 ${
+                    token
+                      ? "cursor-not-allowed border-slate-300 bg-slate-100 text-slate-500"
+                      : "border-[#d5a062] text-slate-900 hover:bg-[#d5a062] hover:text-white"
+                  }`}
                 >
-                  Generate token
+                  {token ? "Token generated" : "Generate token"}
                 </button>
               </form>
 
               <form action="/api/userapi/reset-password" method="post" className="space-y-4">
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-slate-700">Email</label>
+                  <label className="mb-2 block text-sm font-medium text-slate-700">Full name</label>
                   <input
-                    name="email"
-                    type="email"
+                    name="name"
+                    type="text"
                     required
-                    placeholder="Registered email"
+                    defaultValue={fullName}
+                    placeholder="Registered full name"
                     className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none placeholder:text-slate-400 focus:border-[#39c7d4] focus:bg-white"
                   />
                 </div>
@@ -90,23 +97,33 @@ export default async function UserForgotPasswordPage({ searchParams }) {
                     className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none placeholder:text-slate-400 focus:border-[#39c7d4] focus:bg-white"
                   />
                 </div>
-                <PasswordField
-                  name="newPassword"
-                  label="New password"
-                  placeholder="Strong password"
-                  autoComplete="new-password"
-                />
-                <PasswordField
-                  name="confirmPassword"
-                  label="Confirm password"
-                  placeholder="Repeat password"
-                  autoComplete="new-password"
-                />
+                <div>
+                  <label className="mb-2 block text-sm font-medium text-slate-700">New place</label>
+                  <input
+                    name="newPlace"
+                    type="text"
+                    required
+                    placeholder="Enter new place text"
+                    className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none placeholder:text-slate-400 focus:border-[#39c7d4] focus:bg-white"
+                  />
+                </div>
+                <div>
+                  <label className="mb-2 block text-sm font-medium text-slate-700">
+                    Confirm place
+                  </label>
+                  <input
+                    name="confirmPlace"
+                    type="text"
+                    required
+                    placeholder="Repeat place text"
+                    className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none placeholder:text-slate-400 focus:border-[#39c7d4] focus:bg-white"
+                  />
+                </div>
                 <button
                   type="submit"
                   className="w-full rounded-2xl border border-[#d5a062] px-4 py-3 font-medium text-slate-900 transition duration-200 hover:bg-[#d5a062] hover:text-white"
                 >
-                  Set new password
+                  Set new place
                 </button>
               </form>
             </div>

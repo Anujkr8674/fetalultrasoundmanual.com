@@ -38,7 +38,7 @@ export default async function UserDashboardOverviewPage() {
       [user.id]
     ),
     query(
-      `SELECT issue_key, case_key, content_key, action, created_at
+      `SELECT id, issue_key, case_key, content_key, action, created_at
        FROM case_like_events
        WHERE user_id = ?
        ORDER BY created_at DESC, id DESC
@@ -76,8 +76,8 @@ export default async function UserDashboardOverviewPage() {
           <p className="mt-2 text-xl font-semibold text-slate-900">{user.name}</p>
         </article>
         <article className="rounded-[24px] border border-slate-200 bg-white p-5 shadow-[0_18px_60px_rgba(15,23,42,0.06)]">
-          <p className="text-sm text-slate-500">Email</p>
-          <p className="mt-2 break-all text-xl font-semibold text-slate-900">{user.email}</p>
+          <p className="text-sm text-slate-500">Place</p>
+          <p className="mt-2 break-all text-xl font-semibold text-slate-900">{user.place}</p>
         </article>
         <article className="rounded-[24px] border border-slate-200 bg-white p-5 shadow-[0_18px_60px_rgba(15,23,42,0.06)]">
           <p className="text-sm text-slate-500">Joined</p>
@@ -129,7 +129,7 @@ export default async function UserDashboardOverviewPage() {
             {activeLikes.length ? (
               activeLikes.map((item) => (
                 <Link
-                  key={`${item.issue_key}:${item.case_key}`}
+                  key={`${item.issue_key}:${item.case_key}:${item.content_key}`}
                   href={`/${item.issue_key}/${item.case_key}`}
                   className="flex items-center justify-between gap-4 rounded-3xl border border-slate-200 bg-slate-50 px-5 py-4 transition hover:border-[#22c4cf] hover:bg-[#effdff]"
                 >

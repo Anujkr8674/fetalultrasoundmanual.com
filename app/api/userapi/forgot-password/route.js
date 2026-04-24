@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import {
   generateResetToken,
   hashResetToken,
-  normalizeEmail,
 } from "../../../../lib/auth";
 import { createRedirectUrl } from "../../../../lib/request-url";
 import { ensureUserTable, query } from "../../../../lib/db";
@@ -22,16 +21,17 @@ export async function POST(request) {
     await ensureUserTable();
 
     const formData = await request.formData();
-    const email = normalizeEmail(formData.get("email"));
+    const name = String(formData.get("name") || "").trim();
 
-    if (!email) {
-      return redirectWithMessage(request, { error: "Please enter your email address." });
+    if (!name) {
+      return redirectWithMessage(request, { error: "Please enter full name." });
     }
 
-    const users = await query("SELECT id FROM users WHERE email = ? LIMIT 1", [email]);
+    const users = await query("SELECT id FROM users WHERE name = ? LIMIT 1", [name]);
     if (!users.length) {
       return redirectWithMessage(request, {
-        message: "If the email exists, a reset token has been generated.",
+        message: "If the full name exists, a reset token has been generated.",
+        name,
       });
     }
 
@@ -49,6 +49,7 @@ export async function POST(request) {
     return redirectWithMessage(request, {
       message: "Reset token generated successfully.",
       token: resetToken,
+      name,
     });
   } catch (error) {
     console.error("Forgot password error:", error);

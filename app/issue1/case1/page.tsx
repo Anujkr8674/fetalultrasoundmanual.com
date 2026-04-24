@@ -1,19 +1,16 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import AuthorCard from "../../minicomponents/AuthorCard";
 import VideoCard from "../../minicomponents/VideoCard";
 import CaseLikeButton from "../../minicomponents/CaseLikeButton";
+import QuickAuthGateModal from "../../components/QuickAuthGateModal";
 
 const CASE_KEY = "case1";
 const ISSUE_KEY = "issue1";
-const CASE_PATH = "/issue1/case1";
-
 function Page() {
-  const router = useRouter();
   const [authStatus, setAuthStatus] = useState("checking");
   const [showGate, setShowGate] = useState(false);
   const [guestMode, setGuestMode] = useState(false);
@@ -139,10 +136,6 @@ function Page() {
     }
   }
 
-  function handleLoginRedirect() {
-    router.push(`/user/login?redirectTo=${encodeURIComponent(CASE_PATH)}&message=login_required_for_like`);
-  }
-
   function handleGuestContinue() {
     setGuestMode(true);
     setShowGate(false);
@@ -161,45 +154,16 @@ function Page() {
     >
       <div className="absolute inset-0 -z-10 h-full w-full bg-white/45 bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]" />
 
-      {showGate && authStatus !== "checking" ? (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
-          <div className="relative w-full max-w-md rounded-[28px] border border-white/10 bg-white p-6 text-slate-900 shadow-[0_25px_80px_rgba(0,0,0,0.3)]">
-            <button
-              type="button"
-              onClick={handleCloseGate}
-              aria-label="Close dialog"
-              className="absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-xl font-semibold text-slate-500 transition hover:border-slate-300 hover:text-slate-900"
-            >
-              ×
-            </button>
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#7e63ff]">
-              Access Mode
-            </p>
-            <h2 className="mt-3 text-3xl font-semibold">Login or continue as guest</h2>
-            <p className="mt-3 text-sm leading-6 text-slate-600">
-              You can open the case as a guest, but only logged-in users can like and track this
-              case.
-            </p>
-
-            <div className="mt-6 space-y-3">
-              <button
-                type="button"
-                onClick={handleLoginRedirect}
-                className="w-full rounded-2xl bg-[#d5a062] px-4 py-3 text-sm font-semibold text-white transition hover:scale-[0.99]"
-              >
-                Login to like
-              </button>
-              <button
-                type="button"
-                onClick={handleGuestContinue}
-                className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
-              >
-                Continue as Guest
-              </button>
-            </div>
-          </div>
-        </div>
-      ) : null}
+      <QuickAuthGateModal
+        open={showGate && authStatus !== "checking"}
+        onClose={handleCloseGate}
+        onGuestContinue={handleGuestContinue}
+        onAuthenticated={() => {
+          setAuthStatus("authenticated");
+          setGuestMode(false);
+          setShowGate(false);
+        }}
+      />
 
       <div className="mx-auto mb-12 md:max-w-7xl text-center">
         <h1 className="text-3xl font-light md:text-5xl">

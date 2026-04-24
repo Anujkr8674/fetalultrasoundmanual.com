@@ -191,7 +191,7 @@ export default function UserShell({ user, children }) {
 
               <div className="flex items-center gap-3">
                 <div className="hidden rounded-2xl bg-slate-100 px-4 py-3 text-sm text-slate-600 sm:block">
-                  {user?.email || "Signed in user"}
+                  {user?.name || "Signed in user"}
                 </div>
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#0f9faa] text-base font-semibold text-white">
                   {(user?.name || "U").charAt(0).toUpperCase()}

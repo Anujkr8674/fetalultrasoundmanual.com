@@ -29,7 +29,7 @@ export default async function AdminUsersPage({ searchParams }) {
   const hasPrevious = safePage > 1;
   const hasNext = safePage < totalPages;
   const users = await query(
-    `SELECT id, name, email, phone, gender, created_at
+    `SELECT id, name, place, created_at
      FROM users
      ORDER BY id DESC
      LIMIT ? OFFSET ?`,
@@ -64,9 +64,7 @@ export default async function AdminUsersPage({ searchParams }) {
             <thead className="bg-slate-50">
               <tr>
                 <th className="px-4 py-3 text-sm font-semibold text-slate-700">Name</th>
-                <th className="px-4 py-3 text-sm font-semibold text-slate-700">Email</th>
-                <th className="px-4 py-3 text-sm font-semibold text-slate-700">Phone</th>
-                <th className="px-4 py-3 text-sm font-semibold text-slate-700">Gender</th>
+                <th className="px-4 py-3 text-sm font-semibold text-slate-700">Place</th>
                 <th className="px-4 py-3 text-sm font-semibold text-slate-700">Action</th>
               </tr>
             </thead>
@@ -74,9 +72,7 @@ export default async function AdminUsersPage({ searchParams }) {
               {users.map((user) => (
                 <tr key={user.id} className="hover:bg-slate-50">
                   <td className="px-4 py-4 text-sm font-semibold text-slate-900">{user.name}</td>
-                  <td className="px-4 py-4 text-sm text-slate-600 break-all">{user.email}</td>
-                  <td className="px-4 py-4 text-sm text-slate-600">{user.phone || "-"}</td>
-                  <td className="px-4 py-4 text-sm text-slate-600">{user.gender || "-"}</td>
+                  <td className="px-4 py-4 text-sm text-slate-600 break-all">{user.place}</td>
                   <td className="px-4 py-4 text-sm">
                     <div className="flex flex-wrap gap-3">
                       <Link

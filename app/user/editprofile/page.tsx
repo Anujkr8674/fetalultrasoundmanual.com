@@ -28,7 +28,7 @@ export default async function EditProfilePage({ searchParams }) {
         </p>
         <h1 className="mt-3 text-3xl font-semibold text-slate-900">Update your details</h1>
         <p className="mt-2 text-sm leading-6 text-slate-600">
-          Keep your name, email, and phone number current.
+          Keep your full name and place updated.
         </p>
 
         {message ? (
@@ -43,27 +43,20 @@ export default async function EditProfilePage({ searchParams }) {
             <input
               name="name"
               type="text"
+              disabled
               required
               defaultValue={user.name}
               className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none focus:border-[#39c7d4] focus:bg-white"
             />
           </div>
           <div>
-            <label className="mb-2 block text-sm font-medium text-slate-700">Email</label>
+            <label className="mb-2 block text-sm font-medium text-slate-700">Place</label>
             <input
-              name="email"
-              type="email"
+              name="place"
+              type="text"
+              disabled
               required
-              defaultValue={user.email}
-              className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none focus:border-[#39c7d4] focus:bg-white"
-            />
-          </div>
-          <div>
-            <label className="mb-2 block text-sm font-medium text-slate-700">Phone</label>
-            <input
-              name="phone"
-              type="tel"
-              defaultValue={user.phone || ""}
+              defaultValue={user.place}
               className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none focus:border-[#39c7d4] focus:bg-white"
             />
           </div>
@@ -80,7 +73,8 @@ export default async function EditProfilePage({ searchParams }) {
       <section className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-[0_18px_60px_rgba(15,23,42,0.08)] sm:p-8">
         <h2 className="text-2xl font-semibold text-slate-900">Guidelines</h2>
         <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-600">
-          <li>- Email must stay unique in the system.</li>
+          <li>- Full name must stay unique in the system.</li>
+          <li>- Place can be any text value.</li>
           <li>- Saving changes keeps the current session valid.</li>
           <li>- Use My Profile to review saved details after update.</li>
         </ul>

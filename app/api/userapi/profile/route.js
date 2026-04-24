@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import {
   AUTH_COOKIE_NAME,
   getAuthenticatedUserFromToken,
-  normalizeEmail,
+  isValidFullName,
   signToken,
 } from "../../../../lib/auth";
 import { createRedirectUrl } from "../../../../lib/request-url";
@@ -36,10 +36,9 @@ export async function GET(request) {
     user: {
       id: user.id,
       name: user.name,
-      email: user.email,
-      phone: user.phone,
-      gender: user.gender,
+      place: user.place,
       createdAt: user.created_at,
+      updatedAt: user.updated_at,
     },
   });
 }
@@ -54,33 +53,37 @@ export async function POST(request) {
 
     const formData = await request.formData();
     const name = String(formData.get("name") || "").trim();
-    const email = normalizeEmail(formData.get("email"));
-    const phone = String(formData.get("phone") || "").trim();
+    const place = String(formData.get("place") || "").trim();
 
-    if (!name || !email) {
-      return redirectToEdit(request, { error: "Name and email are required." });
+    if (!name || !place) {
+      return redirectToEdit(request, { error: "Full name and place are required." });
     }
 
-    const existing = await query(
-      "SELECT id FROM users WHERE email = ? AND id <> ? LIMIT 1",
-      [email, user.id]
-    );
+    if (!isValidFullName(name)) {
+      return redirectToEdit(request, { error: "Enter a valid full name." });
+    }
+
+    const existing = await query("SELECT id FROM users WHERE name = ? AND id <> ? LIMIT 1", [
+      name,
+      user.id,
+    ]);
 
     if (existing.length) {
-      return redirectToEdit(request, { error: "This email is already in use." });
+      return redirectToEdit(request, { error: "This full name is already in use." });
     }
 
-    await getPool().execute(
-      "UPDATE users SET name = ?, email = ?, phone = ? WHERE id = ?",
-      [name, email, phone || null, user.id]
-    );
+    await getPool().execute("UPDATE users SET name = ?, place = ? WHERE id = ?", [
+      name,
+      place,
+      user.id,
+    ]);
 
     const response = redirectToProfile(request, { message: "Profile updated successfully." });
     response.cookies.set(
       AUTH_COOKIE_NAME,
       signToken({
         sub: user.id,
-        email,
+        name,
         tokenVersion: user.token_version,
       }),
       {

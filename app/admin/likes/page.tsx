@@ -54,7 +54,7 @@ export default async function AdminLikesPage({ searchParams }) {
          SELECT u.id
          FROM case_likes cl
          INNER JOIN users u ON u.id = cl.user_id
-         GROUP BY u.id, u.name, u.email
+         GROUP BY u.id, u.name, u.place
        ) AS grouped_users`
     ),
     query("SELECT COUNT(*) AS count FROM case_like_events"),
@@ -97,11 +97,11 @@ export default async function AdminLikesPage({ searchParams }) {
       `SELECT
          u.id,
          u.name,
-         u.email,
+         u.place,
          COUNT(*) AS like_count
        FROM case_likes cl
        INNER JOIN users u ON u.id = cl.user_id
-       GROUP BY u.id, u.name, u.email
+       GROUP BY u.id, u.name, u.place
        ORDER BY like_count DESC, u.id DESC
        LIMIT ? OFFSET ?`,
       [PAGE_SIZE, (safeUsersPage - 1) * PAGE_SIZE]
@@ -115,8 +115,7 @@ export default async function AdminLikesPage({ searchParams }) {
          e.content_key,
          e.created_at,
          u.id AS user_id,
-         u.name,
-         u.email
+         u.name
        FROM case_like_events e
        INNER JOIN users u ON u.id = e.user_id
        ORDER BY e.created_at DESC, e.id DESC
@@ -290,7 +289,7 @@ export default async function AdminLikesPage({ searchParams }) {
                   <div className="flex items-center justify-between gap-3">
                     <div>
                       <div className="text-base font-semibold text-slate-900">{user.name}</div>
-                      <div className="mt-1 text-sm text-slate-600 break-all">{user.email}</div>
+                        <div className="mt-1 text-sm text-slate-600 break-all">{user.place}</div>
                     </div>
                     <span className="inline-flex rounded-full bg-[#f1eeff] px-3 py-1 text-xs font-semibold text-[#7e63ff]">
                       {user.like_count} likes

@@ -21,7 +21,7 @@ export default async function AdminDashboardOverviewPage() {
 
   const [totalUsers, recentUsers, totalAdmins] = await Promise.all([
     query("SELECT COUNT(*) AS count FROM users"),
-    query("SELECT id, name, email, gender, created_at FROM users ORDER BY id DESC LIMIT 5"),
+    query("SELECT id, name, place, created_at FROM users ORDER BY id DESC LIMIT 5"),
     query("SELECT COUNT(*) AS count FROM admins"),
   ]);
 
@@ -80,7 +80,7 @@ export default async function AdminDashboardOverviewPage() {
               >
                 <div>
                   <div className="text-base font-semibold text-slate-900">{user.name}</div>
-                  <div className="mt-1 text-sm text-slate-600 break-all">{user.email}</div>
+                  <div className="mt-1 text-sm text-slate-600 break-all">{user.place}</div>
                 </div>
                 <div className="text-sm text-slate-500">{formatDate(user.created_at)}</div>
               </Link>

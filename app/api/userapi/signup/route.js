@@ -1,13 +1,7 @@
 import { NextResponse } from "next/server";
 import {
   AUTH_COOKIE_NAME,
-  hashPassword,
   isValidFullName,
-  isStrongPassword,
-  isValidGender,
-  normalizeEmail,
-  normalizeGender,
-  sanitizePhone,
   signToken,
 } from "../../../../lib/auth";
 import { createRedirectUrl } from "../../../../lib/request-url";
@@ -25,13 +19,9 @@ export async function POST(request) {
 
     const formData = await request.formData();
     const name = String(formData.get("name") || "").trim();
-    const email = normalizeEmail(formData.get("email"));
-    const phone = sanitizePhone(formData.get("phone"));
-    const gender = normalizeGender(formData.get("gender"));
-    const password = String(formData.get("password") || "");
-    const confirmPassword = String(formData.get("confirmPassword") || "");
+    const place = String(formData.get("place") || "").trim();
 
-    if (!name || !email || !password || !confirmPassword) {
+    if (!name || !place) {
       return redirectWithError(request, "Please fill all required fields.");
     }
 
@@ -39,43 +29,19 @@ export async function POST(request) {
       return redirectWithError(request, "Enter a valid full name.");
     }
 
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      return redirectWithError(request, "Enter a valid email address.");
-    }
-
-    if (phone && !/^\d{7,15}$/.test(phone)) {
-      return redirectWithError(request, "Phone number must contain only digits.");
-    }
-
-    if (!isValidGender(gender)) {
-      return redirectWithError(request, "Please select a valid gender.");
-    }
-
-    if (password !== confirmPassword) {
-      return redirectWithError(request, "Password and confirm password do not match.");
-    }
-
-    if (!isStrongPassword(password)) {
-      return redirectWithError(
-        request,
-        "Password must be 8+ chars with uppercase, lowercase, number, and symbol."
-      );
-    }
-
-    const existing = await query("SELECT id FROM users WHERE email = ? LIMIT 1", [email]);
+    const existing = await query("SELECT id FROM users WHERE name = ? LIMIT 1", [name]);
     if (existing.length) {
-      return redirectWithError(request, "This email is already registered.");
+      return redirectWithError(request, "This full name is already registered.");
     }
 
-    const passwordHash = await hashPassword(password);
     const [result] = await getPool().execute(
-      `INSERT INTO users (name, email, phone, gender, password_hash, token_version)
-       VALUES (?, ?, ?, ?, ?, 0)`,
-      [name, email, phone || null, gender, passwordHash]
+      `INSERT INTO users (name, place, token_version)
+       VALUES (?, ?, 0)`,
+      [name, place]
     );
 
     const userId = result.insertId;
-    const token = signToken({ sub: userId, email, tokenVersion: 0 });
+    const token = signToken({ sub: userId, name, tokenVersion: 0 });
 
     const response = NextResponse.redirect(
       createRedirectUrl(request, "/user/dashboardoverview"),

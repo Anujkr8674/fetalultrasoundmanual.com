@@ -76,9 +76,7 @@ export default async function AdminUserLikesPage({ searchParams }) {
     `SELECT
        u.id,
        u.name,
-       u.email,
-       u.phone,
-       u.gender,
+       u.place,
        u.created_at,
        (SELECT COUNT(*) FROM case_likes cl WHERE cl.user_id = u.id) AS active_likes,
        (SELECT COUNT(*) FROM case_like_events e WHERE e.user_id = u.id) AS total_events,
@@ -185,7 +183,7 @@ export default async function AdminUserLikesPage({ searchParams }) {
               <thead>
                 <tr className="text-left text-xs uppercase tracking-[0.25em] text-slate-500">
                   <th className="border-b border-slate-200 px-4 py-3">User</th>
-                  <th className="border-b border-slate-200 px-4 py-3">Email</th>
+                  <th className="border-b border-slate-200 px-4 py-3">Place</th>
                   <th className="border-b border-slate-200 px-4 py-3">Active Likes</th>
                   <th className="border-b border-slate-200 px-4 py-3">Last Activity</th>
                   <th className="border-b border-slate-200 px-4 py-3">Actions</th>
@@ -195,7 +193,7 @@ export default async function AdminUserLikesPage({ searchParams }) {
                 {users.map((user) => (
                   <tr key={user.id} className="text-sm text-slate-700">
                     <td className="border-b border-slate-100 px-4 py-4 font-medium">{user.name}</td>
-                    <td className="border-b border-slate-100 px-4 py-4 break-all">{user.email}</td>
+                    <td className="border-b border-slate-100 px-4 py-4 break-all">{user.place}</td>
                     <td className="border-b border-slate-100 px-4 py-4">
                       <span className="inline-flex rounded-full bg-[#f1eeff] px-3 py-1 text-xs font-semibold text-[#7e63ff]">
                         {user.active_likes || 0}

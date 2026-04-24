@@ -20,7 +20,7 @@ export default async function AdminUserDetailPage({ params }) {
   }
 
   const users = await query(
-    "SELECT id, name, email, phone, gender, created_at, updated_at FROM users WHERE id = ? LIMIT 1",
+    "SELECT id, name, place, created_at, updated_at FROM users WHERE id = ? LIMIT 1",
     [params.id]
   );
 
@@ -40,16 +40,8 @@ export default async function AdminUserDetailPage({ params }) {
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2">
           <article className="rounded-3xl bg-slate-50 p-5">
-            <div className="text-sm text-slate-500">Email</div>
-            <div className="mt-2 break-all text-lg font-semibold text-slate-900">{user.email}</div>
-          </article>
-          <article className="rounded-3xl bg-slate-50 p-5">
-            <div className="text-sm text-slate-500">Phone</div>
-            <div className="mt-2 text-lg font-semibold text-slate-900">{user.phone || "N/A"}</div>
-          </article>
-          <article className="rounded-3xl bg-slate-50 p-5">
-            <div className="text-sm text-slate-500">Gender</div>
-            <div className="mt-2 text-lg font-semibold text-slate-900">{user.gender || "N/A"}</div>
+            <div className="text-sm text-slate-500">Place</div>
+            <div className="mt-2 break-all text-lg font-semibold text-slate-900">{user.place}</div>
           </article>
           <article className="rounded-3xl bg-slate-50 p-5">
             <div className="text-sm text-slate-500">Created</div>

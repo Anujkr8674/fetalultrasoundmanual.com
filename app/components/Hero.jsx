@@ -119,7 +119,7 @@ function Hero({ onScrollClick }) {
               </h3>
               <p className='mt-4 sm:text-[20px] text-[18px] leading-relaxed text-[#fefefe]'>
                 President, FOGSI (2026) <br />
-                Chairperson Endoscopy Committee of SAFOG <br />
+                Chairperson, Endoscopy Committee of SAFOG <br />
                 Senior Consultant <br />
                 Department of Obstetrics and Gynecology <br />
                 Apollo Multispeciality Hospital <br />

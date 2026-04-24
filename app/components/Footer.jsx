@@ -12,7 +12,7 @@ function Footer() {
 
   return (
     <div className="flex justify-center bg-[#FCC27F] py-2 text-white">
-      (c) 2026-2027 All Right Reserved.
+      (c) 2026-2027 All Right, Reserved.
     </div>
   );
 }
