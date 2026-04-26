@@ -196,8 +196,8 @@ function Page() {
         </div>
 
         {guestMode ? (
-          <p className="mt-4 text-sm text-red-600 bg-white p-3 rounded-md border border-red-200">
-  Guest mode active. Login required to like this case.
+          <p className="mt-4 text-sm  p-3 ">
+  
 </p>
         ) : null}
       </div>

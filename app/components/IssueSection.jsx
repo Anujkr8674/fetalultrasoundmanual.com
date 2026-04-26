@@ -8,7 +8,7 @@ import Link from 'next/link';
 const issues = [
   {
     coverImg:
-      ' https://fetalultrasoundmanual.com/assets/casebook-images/Fogsi Practical Fetal ultrasound Detecting Birth Defects MOCKUP.jpg',
+      ' https://fetalultrasoundmanual.com/assets/casebook-images/cover1.png',
     issueNo: 1,
     linkUrl: './issue1',
   },
