@@ -1,4 +1,4 @@
-name: Deploy to Hostinger
+name: 🚀 Deploy to Hostinger
 
 on:
   push:
@@ -10,19 +10,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
+      - name: 📥 Checkout Code
         uses: actions/checkout@v3
 
-      - name: Install Dependencies
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: 📦 Install Dependencies
         run: npm install
 
-      - name: Build Project
+      - name: 🏗 Build Project
         run: npm run build
 
-      - name: Deploy to Hostinger via FTP
+      - name: 🚀 Deploy to Hostinger via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: ftp.fetalultrasoundmanual.com   # 🔥 IP ki jagah ye use karo
+          server: ftp.fetalultrasoundmanual.com
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftp
@@ -30,3 +35,4 @@ jobs:
           passive: true
           local-dir: ./out/
           server-dir: /public_html/
+          dangerous-clean-slate: true
