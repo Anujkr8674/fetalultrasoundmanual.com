@@ -101,7 +101,7 @@ function Navbar({ forceShow = false }) {
             </>
           ) : (
             <>
-             {/* <Link
+              {/* <Link
   href="/user/login"
   className="rounded-full border-2 border-[#FCC27F] px-5 py-3 text-sm font-bold text-black transition duration-200 hover:scale-95 hover:bg-[#FCC27F] hover:text-white"
 >
