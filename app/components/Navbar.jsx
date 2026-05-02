@@ -84,24 +84,24 @@ function Navbar({ forceShow = false }) {
             </span>
           ) : user ? (
             <>
-              <Link
+              {/* <Link
                 href="/user/dashboardoverview"
                 className="rounded-full border-2 border-[#FCC27F]  px-5 py-3 text-sm font-[700] text-black transition duration-200 hover:scale-95 hover:bg-[#FCC27F] hover:text-[#000000]"
               >
                 Dashboard
-              </Link>
-              <form action="/api/userapi/logout" method="post">
+              </Link> */}
+              {/* <form action="/api/userapi/logout" method="post">
                 <button
                   type="submit"
                   className="rounded-full border-2 border-red-500 px-5 py-3 text-sm font-[700] text-red-600 transition duration-200 hover:scale-95 hover:bg-red-500 hover:text-white"
                 >
                   Logout
                 </button>
-              </form>
+              </form> */}
             </>
           ) : (
             <>
-             <Link
+             {/* <Link
   href="/user/login"
   className="rounded-full border-2 border-[#FCC27F] px-5 py-3 text-sm font-bold text-black transition duration-200 hover:scale-95 hover:bg-[#FCC27F] hover:text-white"
 >
@@ -112,7 +112,7 @@ function Navbar({ forceShow = false }) {
   className="rounded-full border-2 border-[#FCC27F] bg-[#FCC27F] px-5 py-3 text-sm font-bold text-white transition duration-200 hover:scale-95 hover:bg-white hover:text-[#000000]"
 >
   Register
-</Link>
+</Link> */}
             </>
           )}
         </div>

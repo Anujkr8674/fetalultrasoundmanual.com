@@ -34,6 +34,13 @@ function VideoCard({ videoSrc, thumbnailSrc = "", title, about }) {
     return () => window.removeEventListener("fogsi-video-opened", handleVideoOpened);
   }, []);
 
+  useEffect(() => {
+  if (isModalOpen && videoRef.current) {
+    videoRef.current.currentTime = 0;
+    videoRef.current.play().catch(() => {});
+  }
+}, [isModalOpen]);
+
   function openVideoModal() {
     setIsModalOpen(true);
     window.dispatchEvent(
@@ -157,14 +164,16 @@ function VideoCard({ videoSrc, thumbnailSrc = "", title, about }) {
             </button>
 
             {isVideo ? (
-              <video
-                ref={videoRef}
-                className="h-full w-full rounded-2xl bg-black"
-                controls
-                playsInline
-                preload="metadata"
-                onEnded={closeModal}
-              >
+             <video
+  ref={videoRef}
+  className="h-full w-full rounded-2xl bg-black"
+  controls
+  playsInline
+  autoPlay
+  muted
+  preload="metadata"
+  onEnded={closeModal}
+>
                 <source src={videoSrc} />
                 Your browser does not support the video tag.
               </video>
