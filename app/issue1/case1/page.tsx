@@ -198,7 +198,7 @@ function Page() {
         {guestMode ? (
           <p className="mt-4 text-sm  p-3 ">
   
-</p>
+          </p>
         ) : null}
       </div>
 
@@ -274,36 +274,42 @@ function Page() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           <VideoCard
             videoSrc="https://fetalultrasoundmanual.com/assets/videos/Videos_Case 1_Issue 1/Video 1_Early fetal development.mp4"
+            thumbnailSrc="https://fetalultrasoundmanual.com/assets/videos/thumb/case1/Video1.png"
             title="Video 1"
             about="Early fetal development"
           />
 
           <VideoCard
             videoSrc="https://fetalultrasoundmanual.com/assets/videos/Videos_Case 1_Issue 1/Video 2A Early pregnancy scan.mp4"
+            thumbnailSrc="https://fetalultrasoundmanual.com/assets/videos/thumb/case1/Video2A.png"
             title="Video 2A"
             about="Early pregnancy scan"
           />
 
           <VideoCard
             videoSrc="https://fetalultrasoundmanual.com/assets/videos/Videos_Case 1_Issue 1/Video 2B Early pregnancy scan.mp4"
+            thumbnailSrc="https://fetalultrasoundmanual.com/assets/videos/thumb/case1/Video2B.png"
             title="Video 2B"
             about="Early pregnancy scan"
           />
 
           <VideoCard
             videoSrc="https://fetalultrasoundmanual.com/assets/videos/Videos_Case 1_Issue 1/Video 2C Early pregnancy scan.mp4"
+            thumbnailSrc="https://fetalultrasoundmanual.com/assets/videos/thumb/case1/Video2C.png"
             title="Video 2C"
             about="Early pregnancy scan"
           />
 
           <VideoCard
             videoSrc="https://fetalultrasoundmanual.com/assets/videos/Videos_Case 1_Issue 1/Video 3A Development of neural tube.mp4"
+            thumbnailSrc="https://fetalultrasoundmanual.com/assets/videos/thumb/case1/Video3A.png"
             title="Video 3A"
             about="Development of neural tube"
           />
 
           <VideoCard
             videoSrc="https://fetalultrasoundmanual.com/assets/videos/Videos_Case 1_Issue 1/Video 3B Development of neural tube.mp4"
+            thumbnailSrc="https://fetalultrasoundmanual.com/assets/videos/thumb/case1/Video3B.png"
             title="Video 3B"
             about="Development of neural tube"
           />
