@@ -135,9 +135,9 @@ function VideoCard({ videoSrc, thumbnailSrc = "", title, about }) {
           {title}
         </h2>
 
-        <p className="mt-1 text-sm text-gray-500">
-          {about}
-        </p>
+       <p className="mt-1 text-sm text-black">
+  {about}
+</p>
       </div>
     </motion.div>
   );
