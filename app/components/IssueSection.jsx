@@ -8,34 +8,27 @@ import Link from 'next/link';
 const issues = [
   {
     coverImg:
-      ' https://fetalultrasoundmanual.com/assets/casebook-images/cover1.png',
+      'https://fetalultrasoundmanual.com/assets/casebook-images/cover1.png',
     issueNo: 1,
     linkUrl: './issue1',
   },
-  // {
-  //   coverImg:
-  //     ' https://fetalultrasoundmanual.com/assets/casebook-images/casebook2.png',
-  //   issueNo: 2,
-  //   linkUrl: './issue2',
-  // },
-  // {
-  //   coverImg:
-  //     ' https://fetalultrasoundmanual.com/assets/casebook-images/casebook3.png',
-  //   issueNo: 3,
-  //   linkUrl: './issue3',
-  // },
-   
+  {
+    coverImg:
+      'https://fetalultrasoundmanual.com/assets/issue2-assets/issue2.png',
+    issueNo: 2,
+    linkUrl: './issue2',
+  },
 ];
 
 function IssueSection() {
   return (
     <section className="relative pb-24 px-6 md:px-20 text-white overflow-hidden">
-    
+
       <div className="max-w-7xl mx-auto text-center ">
         <h2 className="text-[32px] mb-8 sm:mb-0 py-4 border-b-1 w-fit text-center mx-auto font-light uppercase  tracking-tight text-[#FFF212] drop-shadow-md">
           Explore the Issues
         </h2>
-        
+
       </div>
 
       <div className="flex md:flex-row  flex-col justify-center items-center   md:gap-10">

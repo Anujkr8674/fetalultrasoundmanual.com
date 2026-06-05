@@ -67,9 +67,9 @@ function VideoCard({ videoSrc, thumbnailSrc = "", title, about }) {
       viewport={{ once: true }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       whileHover={{ scale: 1.03 }}
-      className="h-[360px] w-full max-w-sm overflow-hidden rounded-2xl border border-white/10 bg-white/90 shadow-[0_8px_32px_rgba(0,126,130,0.2)] backdrop-blur-md"
+      className="min-h-[360px] h-full w-full max-w-sm overflow-hidden rounded-2xl border border-white/10 bg-white/90 shadow-[0_8px_32px_rgba(0,126,130,0.2)] backdrop-blur-md flex flex-col pb-4"
     >
-      <div className="relative aspect-video bg-black">
+      <div className="relative aspect-video bg-black shrink-0">
         {!hasVideoSrc ? (
           <div className="flex h-full w-full items-center justify-center bg-gray-200">
             <p className="text-sm text-gray-500">
