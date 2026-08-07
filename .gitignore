@@ -1,4 +1,5 @@
 # heavy assets
+app/assets/
 public/images/
 public/videos/
 *.mp4

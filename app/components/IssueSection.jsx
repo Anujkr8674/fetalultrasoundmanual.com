@@ -18,6 +18,13 @@ const issues = [
     issueNo: 2,
     linkUrl: './issue2',
   },
+
+  {
+    coverImg:
+      'https://fetalultrasoundmanual.com/assets/issue3-assets/cover3.png',
+    issueNo: 3,
+    linkUrl: './issue3',
+  },
 ];
 
 function IssueSection() {
