@@ -272,17 +272,54 @@ function Page() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {/* Add VideoCards here as needed */}
           <VideoCard
-            videoSrc=""
-            thumbnailSrc=""
-            title="Video 1"
-            about="Video description will go here."
+            videoSrc="https://fetalultrasoundmanual.com/assets/issue3-assets/case2/Video%201A_%20ANENCEPHALY.mp4"
+            thumbnailSrc="https://fetalultrasoundmanual.com/assets/issue3-assets/case2/Thumbnails_Case_2/Video%201A_%20ANENCEPHALY.png"
+            title="Video 1A"
+            about="Anencephaly"
           />
           <VideoCard
-            videoSrc=""
-            thumbnailSrc=""
-            title="Video 2"
-            about="Video description will go here."
+            videoSrc="https://fetalultrasoundmanual.com/assets/issue3-assets/case2/Video%201B_%20MENINGOMYELOCELE.mp4"
+            thumbnailSrc="https://fetalultrasoundmanual.com/assets/issue3-assets/case2/Thumbnails_Case_2/Video%201B_%20MENINGOMYELOCELE.png"
+            title="Video 1B"
+            about="Meningomyelocele"
           />
+          <VideoCard
+            videoSrc="https://fetalultrasoundmanual.com/assets/issue3-assets/case2/Video%202A_.mp4"
+            thumbnailSrc="https://fetalultrasoundmanual.com/assets/issue3-assets/case2/Thumbnails_Case_2/Video%202A.png"
+            title="Video 2A"
+            about="Better visualization of cardiac structures achieved due to maternal repositioning and scanning through thin areas, e.g., the umbilical area"
+          />
+          <VideoCard
+            videoSrc="https://fetalultrasoundmanual.com/assets/issue3-assets/case2/Video%202B.mp4"
+            thumbnailSrc="https://fetalultrasoundmanual.com/assets/issue3-assets/case2/Thumbnails_Case_2/Video%202B.png"
+            title="Video 2B"
+            about="Better visualization of cardiac structures achieved due to maternal repositioning and scanning through thin areas, e.g., the umbilical area"
+          />
+          <VideoCard
+            videoSrc="https://fetalultrasoundmanual.com/assets/issue3-assets/case2/Video%202C.mp4"
+            thumbnailSrc="https://fetalultrasoundmanual.com/assets/issue3-assets/case2/Thumbnails_Case_2/Video%202C.png"
+            title="Video 2C"
+            about="Better visualization of cardiac structures achieved due to maternal repositioning and scanning through thin areas, e.g., the umbilical area"
+          />
+          <VideoCard
+            videoSrc="https://fetalultrasoundmanual.com/assets/issue3-assets/case2/Video%202D.mp4"
+            thumbnailSrc="https://fetalultrasoundmanual.com/assets/issue3-assets/case2/Thumbnails_Case_2/Video%202D.png"
+            title="Video 2D"
+            about="Better visualization of cardiac structures achieved due to maternal repositioning and scanning through thin areas, e.g., the umbilical area"
+          />
+          <VideoCard
+            videoSrc="https://fetalultrasoundmanual.com/assets/issue3-assets/case2/Video%203_Difficulties%20in%20doing%20Doppler%20due%20to%20depth.mp4"
+            thumbnailSrc="https://fetalultrasoundmanual.com/assets/issue3-assets/case2/Thumbnails_Case_2/Video%203_Difficulties%20in%20doing%20Doppler%20due%20to%20depth.png"
+            title="Video 3"
+            about="Difficulties in doing Doppler due to depth"
+          />
+          <VideoCard
+            videoSrc="https://fetalultrasoundmanual.com/assets/issue3-assets/case2/VIDEO41.mp4"
+            thumbnailSrc="https://fetalultrasoundmanual.com/assets/issue3-assets/case2/Thumbnails_Case_2/VIDEO41.png"
+            title="Video 4"
+            about="Video showing how to measure NT in a midsagittal view"
+          />
+
         </div>
       </section>
     </div>

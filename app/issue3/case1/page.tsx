@@ -290,16 +290,16 @@ function Page() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {/* Add VideoCards here as needed */}
           <VideoCard
-            videoSrc=""
-            thumbnailSrc=""
+            videoSrc="https://fetalultrasoundmanual.com/assets/issue3-assets/case1/Video 1_Umbilical Artery Doppler.mp4"
+            thumbnailSrc="https://fetalultrasoundmanual.com/assets/issue3-assets/case1/Thumbnails_Case_1/Video 1_Umbilical Artery Doppler.png"
             title="Video 1"
-            about="Video description will go here."
+            about="Umbilical artery Doppler "
           />
           <VideoCard
-            videoSrc=""
-            thumbnailSrc=""
+            videoSrc="https://fetalultrasoundmanual.com/assets/issue3-assets/case1/Video 2_Middle cerebral artery Doppler.mp4"
+            thumbnailSrc="https://fetalultrasoundmanual.com/assets/issue3-assets/case1/Thumbnails_Case_1/Video%202_Middle%20cerebral%20artery%20Doppler.png"
             title="Video 2"
-            about="Video description will go here."
+            about="Middle cerebral artery Doppler"
           />
         </div>
       </section>

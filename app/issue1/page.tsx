@@ -6,39 +6,42 @@ import { motion, useInView } from 'framer-motion';
 import CaseStudyCard from '../minicomponents/caseStudyCard';
 import QuickAuthGateModal from "../components/QuickAuthGateModal";
 
-function AnimatedCase({ imgSrc, title, description, href, caseNo, reverse }) {
+function AnimatedCase({ imgSrc, title, description, href, caseNo, reverse, customHeight }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
 
-  const containerClasses = `flex flex-col sm:h-72 h-full ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-6`;
+  const containerClasses = `flex flex-col ${customHeight || 'sm:h-72 h-full'} ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'} items-stretch gap-6`;
 
   return (
     <div ref={ref} className={containerClasses}>
       {/* Image */}
-      <motion.img
-        src={imgSrc}
-        alt={`Case ${caseNo}`}
-        className="w-full h-full object-cover md:w-1/2 rounded shadow-md"
+      <motion.div
+        className="w-full md:w-1/2 flex flex-col"
         initial={{ x: reverse ? 100 : -100, opacity: 0 }}
         animate={inView ? { x: 0, opacity: 1 } : {}}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-      />
+      >
+        <img
+          src={imgSrc}
+          alt={`Case ${caseNo}`}
+          className="w-full h-full flex-grow object-cover rounded shadow-md bg-gray-200"
+        />
+      </motion.div>
 
       {/* Card */}
       <motion.div
-        className=" flex sm:w-1/2 justify-center"
+        className="w-full md:w-1/2 flex flex-col"
         initial={{ x: reverse ? -100 : 100, opacity: 0 }}
         animate={inView ? { x: 0, opacity: 1 } : {}}
         transition={{ duration: 0.6, ease: 'easeOut' }}
       >
-        <div className=" w-full">
-          <CaseStudyCard
-            title={title}
-            description={description}
-            href={href}
-            caseNo={caseNo}
-          />
-        </div>
+        <CaseStudyCard
+          title={title}
+          description={description}
+          href={href}
+          caseNo={caseNo}
+          customHeight={customHeight}
+        />
       </motion.div>
     </div>
   );
@@ -118,6 +121,7 @@ function Page() {
           href="/issue1/case1"
           caseNo={1}
           reverse={false}
+          customHeight="sm:min-h-[24rem] h-auto"
         />
         <AnimatedCase
           imgSrc="https://fetalultrasoundmanual.com/assets/issue-images/Case 2_Photo.png"
@@ -126,6 +130,7 @@ function Page() {
           href="/issue1/case2"
           caseNo={2}
           reverse={true}
+          customHeight="sm:min-h-[24rem] h-auto"
         />
         
       </div>
