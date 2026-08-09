@@ -71,7 +71,7 @@ export default function QuickAuthGateModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
-      <div className="relative w-full max-w-md rounded-[28px] border border-white/10 bg-white p-6 text-slate-900 shadow-[0_25px_80px_rgba(0,0,0,0.3)]">
+      <div className="relative w-[85%] sm:w-full max-w-[340px] sm:max-w-md rounded-[28px] border border-white/10 bg-white p-6 sm:p-8 text-slate-900 shadow-[0_25px_80px_rgba(0,0,0,0.3)]">
         <button
           type="button"
           onClick={onClose}
@@ -81,28 +81,32 @@ export default function QuickAuthGateModal({
           ×
         </button>
 
-        <div className="mt-4 space-y-3">
-          <form onSubmit={handleSubmit} className="space-y-3">
-          <label className="mb-2 block text-sm font-medium text-slate-700">Full name</label>
-            <input
-              name="name"
-              type="text"
-              required
-              value={form.name}
-              onChange={(event) => updateField("name", event.target.value)}
-              placeholder="Full name"
-              className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none placeholder:text-slate-400 focus:border-[#39c7d4] focus:bg-white"
-            />
-            <label className="mb-2 block text-sm font-medium text-slate-700">Place</label>
-            <input
-              name="place"
-              type="text"
-              required
-              value={form.place}
-              onChange={(event) => updateField("place", event.target.value)}
-              placeholder="Place"
-              className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none placeholder:text-slate-400 focus:border-[#39c7d4] focus:bg-white"
-            />
+        <div className="mt-2 space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+              <label className="mb-1.5 block text-sm font-medium text-slate-700">Full name</label>
+              <input
+                name="name"
+                type="text"
+                required
+                value={form.name}
+                onChange={(event) => updateField("name", event.target.value)}
+                placeholder="Full name"
+                className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none placeholder:text-slate-400 focus:border-[#39c7d4] focus:bg-white transition-colors"
+              />
+            </div>
+            <div>
+              <label className="mb-1.5 block text-sm font-medium text-slate-700">Place</label>
+              <input
+                name="place"
+                type="text"
+                required
+                value={form.place}
+                onChange={(event) => updateField("place", event.target.value)}
+                placeholder="Place"
+                className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none placeholder:text-slate-400 focus:border-[#39c7d4] focus:bg-white transition-colors"
+              />
+            </div>
             {form.error ? (
               <div className="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
                 {form.error}
@@ -111,7 +115,7 @@ export default function QuickAuthGateModal({
             <button
               type="submit"
               disabled={form.loading}
-              className="w-full rounded-2xl bg-[#d5a062] px-4 py-3 text-sm font-semibold text-white transition hover:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-70"
+              className="mt-2 w-full rounded-2xl bg-[#d5a062] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[#c28d50] disabled:cursor-not-allowed disabled:opacity-70"
             >
               {form.loading ? "Please wait..." : "Submit"}
             </button>

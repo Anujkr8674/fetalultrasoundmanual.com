@@ -221,7 +221,7 @@ function Page() {
               hospital="Vardhman Mahavir Medical College and Safdarjung Hospital"
               designation="Associate Professor"
               location="New Delhi, India"
-              image=""
+              image="https://fetalultrasoundmanual.com/assets/issue3-assets/case1/Authors%20photos_Case%201/3.png"
             />
           </motion.div>
 
@@ -239,7 +239,7 @@ function Page() {
               hospital="ART Rainbow IVF, Ujala Cygnus Rainbow Hospital and Malhotra Nursing and Maternity Home"
               designation="Managing Director and Consultant (Obstetrics and Gynecology and Infertility)"
               location="Agra, Uttar Pradesh, India"
-              image=""
+              image="https://fetalultrasoundmanual.com/assets/issue3-assets/case1/Authors%20photos_Case%201/1.png"
             />
           </motion.div>
 
@@ -257,7 +257,7 @@ function Page() {
               hospital="Life Care Hospital"
               designation="Consultant Gynecologist and Infertility Specialist"
               location="Indore, Madhya Pradesh, India"
-              image=""
+              image="https://fetalultrasoundmanual.com/assets/issue3-assets/case1/Authors%20photos_Case%201/4.png"
             />
           </motion.div>
 
@@ -275,7 +275,7 @@ function Page() {
               hospital="SPring Fertility - Fetocare – Fetogene"
               designation="Fertility and Fetal Medicine Specialist, Director"
               location="Nagercoil, Tamil Nadu, India"
-              image=""
+              image="https://fetalultrasoundmanual.com/assets/issue3-assets/case1/Authors%20photos_Case%201/2.png"
             />
           </motion.div>
         </div>

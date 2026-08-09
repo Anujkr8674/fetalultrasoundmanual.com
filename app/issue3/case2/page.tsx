@@ -221,7 +221,7 @@ function Page() {
               hospital="Vardhman Mahavir Medical College and Safdarjung Hospital"
               designation="Consultant, Professor, and Head"
               location="New Delhi, India"
-              image=""
+              image="https://fetalultrasoundmanual.com/assets/issue3-assets/case2/Authors_Photos_/2.png"
             />
           </motion.div>
 
@@ -239,7 +239,7 @@ function Page() {
               hospital="Sai Nest Hospital"
               designation="Founder Director"
               location="Mumbai, Maharashtra, India"
-              image=""
+              image="https://fetalultrasoundmanual.com/assets/issue3-assets/case2/Authors_Photos_/1.png"
             />
           </motion.div>
 
@@ -257,7 +257,7 @@ function Page() {
               hospital="Vardhman Mahavir Medical College and Safdarjung Hospital"
               designation=""
               location="New Delhi, India"
-              image=""
+              image="https://fetalultrasoundmanual.com/assets/issue3-assets/case2/Authors_Photos_/3.png"
             />
           </motion.div>
         </div>

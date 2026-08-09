@@ -285,21 +285,21 @@ function Page() {
           />
 
           <VideoCard
-            videoSrc="https://fetalultrasoundmanual.com/assets/issue2-assets/case1/videos/Video3.mp4"
+            videoSrc="https://fetalultrasoundmanual.com/assets/issue2-assets/case1/videos/Video3_1_compatible.mp4"
             thumbnailSrc="https://fetalultrasoundmanual.com/assets/videos/thumb/case1/Video2B.png"
             title="Video 3"
             about="Deviation of the uterine serosa away from the expected plane, caused by an abnormal bulge of the placental tissue into a neighboring organ, typically the bladder"
           />
 
           <VideoCard
-            videoSrc="https://fetalultrasoundmanual.com/assets/issue2-assets/case1/videos/Video4A.mp4"
+            videoSrc="https://fetalultrasoundmanual.com/assets/issue2-assets/case1/videos/Video4A_compatible.mp4"
             thumbnailSrc="https://fetalultrasoundmanual.com/assets/videos/thumb/case1/Video2C.png"
             title="Video 4A"
             about="A striking amount of color Doppler signal is seen between the myometrium and the posterior wall of the bladder. This sign probably indicates numerous, closely packed, tortuous vessels in that region"
           />
 
           <VideoCard
-            videoSrc="https://fetalultrasoundmanual.com/assets/issue2-assets/case1/videos/Video4B.mp4"
+            videoSrc="https://fetalultrasoundmanual.com/assets/issue2-assets/case1/videos/Video4B_compatible.mp4"
             thumbnailSrc="https://fetalultrasoundmanual.com/assets/videos/thumb/case1/Video3A.png"
             title="Video 4B"
             about="A striking amount of color Doppler signal is seen between the myometrium and the posterior wall of the bladder. This sign probably indicates numerous, closely packed, tortuous vessels in that region"

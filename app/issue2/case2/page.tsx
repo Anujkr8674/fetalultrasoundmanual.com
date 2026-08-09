@@ -278,7 +278,7 @@ function Page() {
           />
 
           <VideoCard
-            videoSrc="https://fetalultrasoundmanual.com/assets/issue2-assets/case2/videos/Video2.mp4"
+            videoSrc="https://fetalultrasoundmanual.com/assets/issue2-assets/case2/videos/Video2%20.mp4"
             thumbnailSrc="https://fetalultrasoundmanual.com/assets/videos/thumb/case2/Video1B.png"
             title="Video 2"
             about="This is the umbilical artery flow velocity waveform. With advancing gestation, the diastolic flow increases. With increasing hypoxia, gradually the diastolic flow will decrease, indicating that the impedance is going to increase, leading to finally absent end-diastolic flow and then reversal of flow in diastole."
