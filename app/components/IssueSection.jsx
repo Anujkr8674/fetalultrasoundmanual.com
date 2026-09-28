@@ -25,6 +25,12 @@ const issues = [
     issueNo: 3,
     linkUrl: './issue3',
   },
+  {
+    coverImg:
+      'https://fetalultrasoundmanual.com/assets/issue4-assets/cover.jpg',
+    issueNo: 4,
+    linkUrl: './issue4',
+  },
 ];
 
 function IssueSection() {
@@ -38,7 +44,7 @@ function IssueSection() {
 
       </div>
 
-      <div className="flex md:flex-row  flex-col justify-center items-center   md:gap-10">
+      <div className="flex flex-wrap justify-center items-center gap-6">
         {issues.map((issue, index) => (
           <motion.div
             key={index}
